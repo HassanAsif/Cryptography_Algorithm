@@ -23,5 +23,22 @@ namespace Cryptography_Algorithm_Project
             Encrypt_textBox.Visible =  true;
 
         }
+
+        private void Play_Fair_Button_CheckedChanged(object sender, EventArgs e)
+        {
+            Encrypt_textBox.Visible = true;
+            text_encrypt.Visible = true;
+        }
+
+        private void Vigenere_Button_CheckedChanged(object sender, EventArgs e)
+        {
+            Encrypt_textBox.Visible = true;
+            text_encrypt.Visible = true;
+        }
+
+        private void Exit_button_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }
