@@ -36,14 +36,16 @@
             this.Play_Fair_Button = new System.Windows.Forms.RadioButton();
             this.Vigenere_Button = new System.Windows.Forms.RadioButton();
             this.Exit_button = new System.Windows.Forms.Button();
+            this.key_label = new System.Windows.Forms.Label();
+            this.Key_textBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // input_textBox
             // 
-            this.input_textBox.Location = new System.Drawing.Point(25, 54);
+            this.input_textBox.Location = new System.Drawing.Point(24, 25);
             this.input_textBox.Multiline = true;
             this.input_textBox.Name = "input_textBox";
-            this.input_textBox.Size = new System.Drawing.Size(316, 69);
+            this.input_textBox.Size = new System.Drawing.Size(483, 68);
             this.input_textBox.TabIndex = 0;
             // 
             // Encrypt_textBox
@@ -51,18 +53,18 @@
             this.Encrypt_textBox.Location = new System.Drawing.Point(24, 251);
             this.Encrypt_textBox.Multiline = true;
             this.Encrypt_textBox.Name = "Encrypt_textBox";
-            this.Encrypt_textBox.Size = new System.Drawing.Size(316, 60);
+            this.Encrypt_textBox.Size = new System.Drawing.Size(484, 54);
             this.Encrypt_textBox.TabIndex = 1;
             this.Encrypt_textBox.Visible = false;
             // 
             // input_message
             // 
             this.input_message.AutoSize = true;
-            this.input_message.Location = new System.Drawing.Point(12, 24);
+            this.input_message.Location = new System.Drawing.Point(12, 9);
             this.input_message.Name = "input_message";
-            this.input_message.Size = new System.Drawing.Size(124, 13);
+            this.input_message.Size = new System.Drawing.Size(127, 13);
             this.input_message.TabIndex = 2;
-            this.input_message.Text = "Enter your message here";
+            this.input_message.Text = "Enter your message here:";
             // 
             // text_encrypt
             // 
@@ -77,7 +79,7 @@
             // Choosealgorithm_label
             // 
             this.Choosealgorithm_label.AutoSize = true;
-            this.Choosealgorithm_label.Location = new System.Drawing.Point(22, 138);
+            this.Choosealgorithm_label.Location = new System.Drawing.Point(12, 162);
             this.Choosealgorithm_label.Name = "Choosealgorithm_label";
             this.Choosealgorithm_label.Size = new System.Drawing.Size(257, 13);
             this.Choosealgorithm_label.TabIndex = 5;
@@ -86,7 +88,7 @@
             // Play_Fair_Button
             // 
             this.Play_Fair_Button.AutoSize = true;
-            this.Play_Fair_Button.Location = new System.Drawing.Point(178, 165);
+            this.Play_Fair_Button.Location = new System.Drawing.Point(179, 201);
             this.Play_Fair_Button.Name = "Play_Fair_Button";
             this.Play_Fair_Button.Size = new System.Drawing.Size(98, 17);
             this.Play_Fair_Button.TabIndex = 6;
@@ -98,7 +100,7 @@
             // Vigenere_Button
             // 
             this.Vigenere_Button.AutoSize = true;
-            this.Vigenere_Button.Location = new System.Drawing.Point(178, 188);
+            this.Vigenere_Button.Location = new System.Drawing.Point(179, 178);
             this.Vigenere_Button.Name = "Vigenere_Button";
             this.Vigenere_Button.Size = new System.Drawing.Size(100, 17);
             this.Vigenere_Button.TabIndex = 7;
@@ -109,7 +111,7 @@
             // 
             // Exit_button
             // 
-            this.Exit_button.Location = new System.Drawing.Point(266, 326);
+            this.Exit_button.Location = new System.Drawing.Point(433, 322);
             this.Exit_button.Name = "Exit_button";
             this.Exit_button.Size = new System.Drawing.Size(75, 23);
             this.Exit_button.TabIndex = 8;
@@ -117,11 +119,30 @@
             this.Exit_button.UseVisualStyleBackColor = true;
             this.Exit_button.Click += new System.EventHandler(this.Exit_button_Click);
             // 
+            // key_label
+            // 
+            this.key_label.AutoSize = true;
+            this.key_label.Location = new System.Drawing.Point(12, 96);
+            this.key_label.Name = "key_label";
+            this.key_label.Size = new System.Drawing.Size(80, 13);
+            this.key_label.TabIndex = 9;
+            this.key_label.Text = "Enter Key here:";
+            // 
+            // Key_textBox
+            // 
+            this.Key_textBox.Location = new System.Drawing.Point(24, 112);
+            this.Key_textBox.Multiline = true;
+            this.Key_textBox.Name = "Key_textBox";
+            this.Key_textBox.Size = new System.Drawing.Size(483, 35);
+            this.Key_textBox.TabIndex = 10;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(352, 357);
+            this.ClientSize = new System.Drawing.Size(533, 357);
+            this.Controls.Add(this.Key_textBox);
+            this.Controls.Add(this.key_label);
             this.Controls.Add(this.Exit_button);
             this.Controls.Add(this.Vigenere_Button);
             this.Controls.Add(this.Play_Fair_Button);
@@ -147,6 +168,8 @@
         private System.Windows.Forms.RadioButton Play_Fair_Button;
         private System.Windows.Forms.RadioButton Vigenere_Button;
         private System.Windows.Forms.Button Exit_button;
+        private System.Windows.Forms.Label key_label;
+        private System.Windows.Forms.TextBox Key_textBox;
     }
 }
 

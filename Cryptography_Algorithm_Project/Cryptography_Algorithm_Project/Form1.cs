@@ -32,8 +32,11 @@ namespace Cryptography_Algorithm_Project
 
         private void Vigenere_Button_CheckedChanged(object sender, EventArgs e)
         {
-            Encrypt_textBox.Visible = true;
-            text_encrypt.Visible = true;
+            if (Key_textBox.TextLength != 0 && input_textBox.TextLength != 0)
+            {
+                Encrypt_textBox.Visible = true;
+                text_encrypt.Visible = true;
+            }
         }
 
         private void Exit_button_Click(object sender, EventArgs e)
