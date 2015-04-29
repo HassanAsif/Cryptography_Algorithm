@@ -445,8 +445,6 @@
             // 
             this.Connect_panel.AutoSize = true;
             this.Connect_panel.BackColor = System.Drawing.SystemColors.ControlText;
-            this.Connect_panel.Controls.Add(this.Instructions_groupBox);
-            this.Connect_panel.Controls.Add(this.Logoutbutton1);
             this.Connect_panel.Controls.Add(this.button3);
             this.Connect_panel.Controls.Add(this.button2);
             this.Connect_panel.Controls.Add(this.button1);
@@ -455,6 +453,8 @@
             this.Connect_panel.Controls.Add(this.buttonConnect);
             this.Connect_panel.Controls.Add(this.groupBox1);
             this.Connect_panel.Controls.Add(this.groupBox2);
+            this.Connect_panel.Controls.Add(this.Instructions_groupBox);
+            this.Connect_panel.Controls.Add(this.Logoutbutton1);
             this.Connect_panel.ForeColor = System.Drawing.Color.Salmon;
             this.Connect_panel.Location = new System.Drawing.Point(0, -2);
             this.Connect_panel.Name = "Connect_panel";
@@ -474,7 +474,7 @@
             this.Login_panel.Controls.Add(this.pictureBox3);
             this.Login_panel.Controls.Add(this.pictureBox1);
             this.Login_panel.Controls.Add(this.logingroupBox);
-            this.Login_panel.Location = new System.Drawing.Point(6, 471);
+            this.Login_panel.Location = new System.Drawing.Point(0, 0);
             this.Login_panel.Name = "Login_panel";
             this.Login_panel.Size = new System.Drawing.Size(839, 4874);
             this.Login_panel.TabIndex = 25;
@@ -790,9 +790,10 @@
             this.InfoRSA_label.ForeColor = System.Drawing.Color.MediumAquamarine;
             this.InfoRSA_label.Location = new System.Drawing.Point(22, 108);
             this.InfoRSA_label.Name = "InfoRSA_label";
-            this.InfoRSA_label.Size = new System.Drawing.Size(234, 13);
+            this.InfoRSA_label.Size = new System.Drawing.Size(166, 13);
             this.InfoRSA_label.TabIndex = 2;
-            this.InfoRSA_label.Text = "o Little Information about RSA Algorithm";
+            this.InfoRSA_label.Text = "o How RSA Algorithm work?";
+            this.InfoRSA_label.Click += new System.EventHandler(this.InfoRSA_label_Click);
             // 
             // InfoVigenere_label
             // 
@@ -800,9 +801,9 @@
             this.InfoVigenere_label.ForeColor = System.Drawing.Color.MediumAquamarine;
             this.InfoVigenere_label.Location = new System.Drawing.Point(22, 82);
             this.InfoVigenere_label.Name = "InfoVigenere_label";
-            this.InfoVigenere_label.Size = new System.Drawing.Size(259, 13);
+            this.InfoVigenere_label.Size = new System.Drawing.Size(197, 13);
             this.InfoVigenere_label.TabIndex = 3;
-            this.InfoVigenere_label.Text = "o Little Information about Vigenere Algorithm";
+            this.InfoVigenere_label.Text = "o How Vigenere Algorithm works?";
             this.InfoVigenere_label.Click += new System.EventHandler(this.InfoVigenere_label_Click);
             // 
             // Form1

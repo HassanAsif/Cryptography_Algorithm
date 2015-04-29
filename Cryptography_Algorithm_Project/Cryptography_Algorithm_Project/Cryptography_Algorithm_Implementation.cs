@@ -456,7 +456,14 @@ namespace Cryptography_Algorithm_Project
 
         private void InfoVigenere_label_Click(object sender, EventArgs e)
         {
-            Speech.Speak();
+            speech.Speak("Vigenere Algorithm. Following are the steps: First step, this cipher will ignore all the symbols and numbers from the text message. Second, it makes the length of key equal to the length of text message. Third, to encrypt text it subtract the frequency of character of text message with the frequency of character of key one by one. Fourth, than it will convert ASCII value into string. Fifth, to decrypt text it add the charcter of encrypted text with the characters of key one by one. And than covert the ASCII values into string to get decrypted text.");
+            MessageBox.Show("Vigenere Algorithm.\rFollowing are the steps:\r First step, this cipher will ignore all the symbols and numbers from the text message.\rSecond, it makes the length of key equal to the length of text message.\rThird, to encrypt text it subtract the frequency of character of text message with the frequency of character of key one by one.\rFourth, than it will convert ASCII value into string.\rFifth, to decrypt text it add the charcter of encrypted text with the characters of key one by one. And than covert the ASCII values into string to get decrypted text.");
+        }
+
+        private void InfoRSA_label_Click(object sender, EventArgs e)
+        {
+            speech.Speak("RSA CIPHER. Following things to know about RSA Cipher: First, it has two keys, public and private key. Second, It automaticcaly generates both keys by getting random values at run time, so that makes this cipher more secured. Third, It has the ability to encrypt every kind of text whether it is number or symbol or character. Fourth, Public Key is basically used for encrypting the message and private key used to decrypt the encryptd text.");
+            MessageBox.Show("RSA CIPHER.\rFollowing things to know about RSA Cipher:\rFirst, it has two keys, public and private key.\rSecond, It automaticcaly generates both keys by getting random values at run time, so that makes this cipher more secured.\rThird, It has the ability to encrypt every kind of text whether it is number or symbol or character.\rFourth, Public Key is basically used for encrypting the message and private key used to decrypt the encryptd text.");
         }
         
       
