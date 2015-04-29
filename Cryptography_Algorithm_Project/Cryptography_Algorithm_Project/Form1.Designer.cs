@@ -31,13 +31,15 @@
             this.input_textBox = new System.Windows.Forms.TextBox();
             this.Encrypt_textBox = new System.Windows.Forms.TextBox();
             this.input_message = new System.Windows.Forms.Label();
-            this.text_encrypt = new System.Windows.Forms.Label();
+            this.encrypt_label = new System.Windows.Forms.Label();
             this.Choosealgorithm_label = new System.Windows.Forms.Label();
             this.Play_Fair_Button = new System.Windows.Forms.RadioButton();
             this.Vigenere_Button = new System.Windows.Forms.RadioButton();
             this.Exit_button = new System.Windows.Forms.Button();
             this.key_label = new System.Windows.Forms.Label();
             this.Key_textBox = new System.Windows.Forms.TextBox();
+            this.decrypt_textBox = new System.Windows.Forms.TextBox();
+            this.decrypt_label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // input_textBox
@@ -66,15 +68,15 @@
             this.input_message.TabIndex = 2;
             this.input_message.Text = "Enter your message here:";
             // 
-            // text_encrypt
+            // encrypt_label
             // 
-            this.text_encrypt.AutoSize = true;
-            this.text_encrypt.Location = new System.Drawing.Point(12, 225);
-            this.text_encrypt.Name = "text_encrypt";
-            this.text_encrypt.Size = new System.Drawing.Size(57, 13);
-            this.text_encrypt.TabIndex = 3;
-            this.text_encrypt.Text = "Encryption";
-            this.text_encrypt.Visible = false;
+            this.encrypt_label.AutoSize = true;
+            this.encrypt_label.Location = new System.Drawing.Point(12, 225);
+            this.encrypt_label.Name = "encrypt_label";
+            this.encrypt_label.Size = new System.Drawing.Size(57, 13);
+            this.encrypt_label.TabIndex = 3;
+            this.encrypt_label.Text = "Encryption";
+            this.encrypt_label.Visible = false;
             // 
             // Choosealgorithm_label
             // 
@@ -111,7 +113,7 @@
             // 
             // Exit_button
             // 
-            this.Exit_button.Location = new System.Drawing.Point(433, 322);
+            this.Exit_button.Location = new System.Drawing.Point(433, 391);
             this.Exit_button.Name = "Exit_button";
             this.Exit_button.Size = new System.Drawing.Size(75, 23);
             this.Exit_button.TabIndex = 8;
@@ -136,18 +138,40 @@
             this.Key_textBox.Size = new System.Drawing.Size(483, 35);
             this.Key_textBox.TabIndex = 10;
             // 
+            // decrypt_textBox
+            // 
+            this.decrypt_textBox.Location = new System.Drawing.Point(23, 331);
+            this.decrypt_textBox.Multiline = true;
+            this.decrypt_textBox.Name = "decrypt_textBox";
+            this.decrypt_textBox.Size = new System.Drawing.Size(484, 54);
+            this.decrypt_textBox.TabIndex = 11;
+            this.decrypt_textBox.Visible = false;
+            // 
+            // decrypt_label
+            // 
+            this.decrypt_label.AutoSize = true;
+            this.decrypt_label.Location = new System.Drawing.Point(12, 315);
+            this.decrypt_label.Name = "decrypt_label";
+            this.decrypt_label.Size = new System.Drawing.Size(58, 13);
+            this.decrypt_label.TabIndex = 12;
+            this.decrypt_label.Text = "Decryption";
+            this.decrypt_label.Visible = false;
+            this.decrypt_label.Click += new System.EventHandler(this.label1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(533, 357);
+            this.ClientSize = new System.Drawing.Size(533, 416);
+            this.Controls.Add(this.decrypt_label);
+            this.Controls.Add(this.decrypt_textBox);
             this.Controls.Add(this.Key_textBox);
             this.Controls.Add(this.key_label);
             this.Controls.Add(this.Exit_button);
             this.Controls.Add(this.Vigenere_Button);
             this.Controls.Add(this.Play_Fair_Button);
             this.Controls.Add(this.Choosealgorithm_label);
-            this.Controls.Add(this.text_encrypt);
+            this.Controls.Add(this.encrypt_label);
             this.Controls.Add(this.input_message);
             this.Controls.Add(this.Encrypt_textBox);
             this.Controls.Add(this.input_textBox);
@@ -163,13 +187,15 @@
         private System.Windows.Forms.TextBox input_textBox;
         private System.Windows.Forms.TextBox Encrypt_textBox;
         private System.Windows.Forms.Label input_message;
-        private System.Windows.Forms.Label text_encrypt;
+        private System.Windows.Forms.Label encrypt_label;
         private System.Windows.Forms.Label Choosealgorithm_label;
         private System.Windows.Forms.RadioButton Play_Fair_Button;
         private System.Windows.Forms.RadioButton Vigenere_Button;
         private System.Windows.Forms.Button Exit_button;
         private System.Windows.Forms.Label key_label;
         private System.Windows.Forms.TextBox Key_textBox;
+        private System.Windows.Forms.TextBox decrypt_textBox;
+        private System.Windows.Forms.Label decrypt_label;
     }
 }
 

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Web;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,29 +20,51 @@ namespace Cryptography_Algorithm_Project
 
         private void send_message_Click(object sender, EventArgs e)
         {
-            text_encrypt.Visible = true;
+            encrypt_label.Visible = true;
             Encrypt_textBox.Visible =  true;
 
         }
 
         private void Play_Fair_Button_CheckedChanged(object sender, EventArgs e)
         {
-            Encrypt_textBox.Visible = true;
-            text_encrypt.Visible = true;
+            if (Key_textBox.TextLength != 0 && input_textBox.TextLength != 0)
+            {
+                Encrypt_textBox.Visible = true;
+                encrypt_label.Visible = true;
+            }
         }
 
         private void Vigenere_Button_CheckedChanged(object sender, EventArgs e)
         {
             if (Key_textBox.TextLength != 0 && input_textBox.TextLength != 0)
             {
+                string input_message = input_textBox.Text.ToUpper();
+                string input_key = Key_textBox.Text.ToUpper();
+                Vigenere_Algorithm obj = new Vigenere_Algorithm(input_key);
+                string get_encrypted_message = obj.encrypt_message(input_message);
                 Encrypt_textBox.Visible = true;
-                text_encrypt.Visible = true;
+                Encrypt_textBox.Text = get_encrypted_message;
+                encrypt_label.Visible = true;
+                string get_decrypt_message = "";
+              get_decrypt_message=obj.decrypt_message(get_encrypted_message);
+               decrypt_textBox.Visible = true;
+                decrypt_textBox.Text = get_decrypt_message;
+                decrypt_label.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("Message Text Box or Key Text Box is empty.");
             }
         }
 
         private void Exit_button_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
