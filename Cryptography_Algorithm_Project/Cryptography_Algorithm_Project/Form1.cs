@@ -46,10 +46,7 @@ namespace Cryptography_Algorithm_Project
                 Encrypt_textBox.Text = get_encrypted_message;
                 encrypt_label.Visible = true;
                 string get_decrypt_message = "";
-              get_decrypt_message=obj.decrypt_message(get_encrypted_message);
-               decrypt_textBox.Visible = true;
-                decrypt_textBox.Text = get_decrypt_message;
-                decrypt_label.Visible = true;
+                
             }
             else
             {
