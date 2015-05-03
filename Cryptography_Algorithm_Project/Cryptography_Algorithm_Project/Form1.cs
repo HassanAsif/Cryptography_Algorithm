@@ -42,10 +42,15 @@ namespace Cryptography_Algorithm_Project
                 string input_key = Key_textBox.Text.ToUpper();
                 Vigenere_Algorithm obj = new Vigenere_Algorithm(input_key);
                 string get_encrypted_message = obj.encrypt_message(input_message);
+                encrypt_label.Visible = true;
                 Encrypt_textBox.Visible = true;
                 Encrypt_textBox.Text = get_encrypted_message;
-                encrypt_label.Visible = true;
+                
                 string get_decrypt_message = "";
+                get_decrypt_message = obj.decrypt_message(get_encrypted_message);
+                decrypt_label.Visible = true;
+                decrypt_textBox.Visible = true;
+                decrypt_textBox.Text = get_decrypt_message;
                 
             }
             else
