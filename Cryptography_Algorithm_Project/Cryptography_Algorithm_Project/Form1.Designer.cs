@@ -32,151 +32,302 @@
             this.Encrypt_textBox = new System.Windows.Forms.TextBox();
             this.input_message = new System.Windows.Forms.Label();
             this.encrypt_label = new System.Windows.Forms.Label();
-            this.Choosealgorithm_label = new System.Windows.Forms.Label();
-            this.Play_Fair_Button = new System.Windows.Forms.RadioButton();
             this.Vigenere_Button = new System.Windows.Forms.RadioButton();
-            this.Exit_button = new System.Windows.Forms.Button();
             this.key_label = new System.Windows.Forms.Label();
             this.Key_textBox = new System.Windows.Forms.TextBox();
             this.decrypt_textBox = new System.Windows.Forms.TextBox();
             this.decrypt_label = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textLocalPort = new System.Windows.Forms.TextBox();
+            this.textLocalIp = new System.Windows.Forms.TextBox();
+            this.portLabel1 = new System.Windows.Forms.Label();
+            this.ipLabel1 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textRemoteIP = new System.Windows.Forms.TextBox();
+            this.textRemotePort = new System.Windows.Forms.TextBox();
+            this.iplabel2 = new System.Windows.Forms.Label();
+            this.portlabel2 = new System.Windows.Forms.Label();
+            this.listMessages = new System.Windows.Forms.ListBox();
+            this.buttonSend = new System.Windows.Forms.Button();
+            this.buttonConnect = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.chatBoxLabel = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // input_textBox
             // 
-            this.input_textBox.Location = new System.Drawing.Point(24, 25);
+            this.input_textBox.Location = new System.Drawing.Point(68, 19);
             this.input_textBox.Multiline = true;
             this.input_textBox.Name = "input_textBox";
-            this.input_textBox.Size = new System.Drawing.Size(483, 68);
+            this.input_textBox.Size = new System.Drawing.Size(309, 67);
             this.input_textBox.TabIndex = 0;
             // 
             // Encrypt_textBox
             // 
-            this.Encrypt_textBox.Location = new System.Drawing.Point(24, 251);
+            this.Encrypt_textBox.Location = new System.Drawing.Point(16, 55);
             this.Encrypt_textBox.Multiline = true;
             this.Encrypt_textBox.Name = "Encrypt_textBox";
-            this.Encrypt_textBox.Size = new System.Drawing.Size(484, 54);
+            this.Encrypt_textBox.Size = new System.Drawing.Size(363, 41);
             this.Encrypt_textBox.TabIndex = 1;
             this.Encrypt_textBox.Visible = false;
             // 
             // input_message
             // 
             this.input_message.AutoSize = true;
-            this.input_message.Location = new System.Drawing.Point(12, 9);
+            this.input_message.Location = new System.Drawing.Point(-3, 22);
             this.input_message.Name = "input_message";
-            this.input_message.Size = new System.Drawing.Size(127, 13);
+            this.input_message.Size = new System.Drawing.Size(65, 13);
             this.input_message.TabIndex = 2;
-            this.input_message.Text = "Enter your message here:";
+            this.input_message.Text = "Message :";
             // 
             // encrypt_label
             // 
             this.encrypt_label.AutoSize = true;
-            this.encrypt_label.Location = new System.Drawing.Point(12, 225);
+            this.encrypt_label.Location = new System.Drawing.Point(3, 39);
             this.encrypt_label.Name = "encrypt_label";
-            this.encrypt_label.Size = new System.Drawing.Size(57, 13);
+            this.encrypt_label.Size = new System.Drawing.Size(67, 13);
             this.encrypt_label.TabIndex = 3;
             this.encrypt_label.Text = "Encryption";
             this.encrypt_label.Visible = false;
             // 
-            // Choosealgorithm_label
-            // 
-            this.Choosealgorithm_label.AutoSize = true;
-            this.Choosealgorithm_label.Location = new System.Drawing.Point(12, 162);
-            this.Choosealgorithm_label.Name = "Choosealgorithm_label";
-            this.Choosealgorithm_label.Size = new System.Drawing.Size(257, 13);
-            this.Choosealgorithm_label.TabIndex = 5;
-            this.Choosealgorithm_label.Text = "Choose an algorithm you want to used for encryption.";
-            // 
-            // Play_Fair_Button
-            // 
-            this.Play_Fair_Button.AutoSize = true;
-            this.Play_Fair_Button.Location = new System.Drawing.Point(179, 201);
-            this.Play_Fair_Button.Name = "Play_Fair_Button";
-            this.Play_Fair_Button.Size = new System.Drawing.Size(98, 17);
-            this.Play_Fair_Button.TabIndex = 6;
-            this.Play_Fair_Button.TabStop = true;
-            this.Play_Fair_Button.Text = "Play Fair Cipher";
-            this.Play_Fair_Button.UseVisualStyleBackColor = true;
-            this.Play_Fair_Button.CheckedChanged += new System.EventHandler(this.Play_Fair_Button_CheckedChanged);
-            // 
             // Vigenere_Button
             // 
             this.Vigenere_Button.AutoSize = true;
-            this.Vigenere_Button.Location = new System.Drawing.Point(179, 178);
+            this.Vigenere_Button.Location = new System.Drawing.Point(26, 19);
             this.Vigenere_Button.Name = "Vigenere_Button";
-            this.Vigenere_Button.Size = new System.Drawing.Size(100, 17);
+            this.Vigenere_Button.Size = new System.Drawing.Size(115, 17);
             this.Vigenere_Button.TabIndex = 7;
             this.Vigenere_Button.TabStop = true;
             this.Vigenere_Button.Text = "Vigenere Cipher";
             this.Vigenere_Button.UseVisualStyleBackColor = true;
             this.Vigenere_Button.CheckedChanged += new System.EventHandler(this.Vigenere_Button_CheckedChanged);
             // 
-            // Exit_button
-            // 
-            this.Exit_button.Location = new System.Drawing.Point(433, 391);
-            this.Exit_button.Name = "Exit_button";
-            this.Exit_button.Size = new System.Drawing.Size(75, 23);
-            this.Exit_button.TabIndex = 8;
-            this.Exit_button.Text = "Exit";
-            this.Exit_button.UseVisualStyleBackColor = true;
-            this.Exit_button.Click += new System.EventHandler(this.Exit_button_Click);
-            // 
             // key_label
             // 
             this.key_label.AutoSize = true;
-            this.key_label.Location = new System.Drawing.Point(12, 96);
+            this.key_label.Location = new System.Drawing.Point(13, 114);
             this.key_label.Name = "key_label";
-            this.key_label.Size = new System.Drawing.Size(80, 13);
+            this.key_label.Size = new System.Drawing.Size(36, 13);
             this.key_label.TabIndex = 9;
-            this.key_label.Text = "Enter Key here:";
+            this.key_label.Text = "Key :";
             // 
             // Key_textBox
             // 
-            this.Key_textBox.Location = new System.Drawing.Point(24, 112);
+            this.Key_textBox.Location = new System.Drawing.Point(68, 114);
             this.Key_textBox.Multiline = true;
             this.Key_textBox.Name = "Key_textBox";
-            this.Key_textBox.Size = new System.Drawing.Size(483, 35);
+            this.Key_textBox.Size = new System.Drawing.Size(200, 27);
             this.Key_textBox.TabIndex = 10;
             // 
             // decrypt_textBox
             // 
-            this.decrypt_textBox.Location = new System.Drawing.Point(23, 331);
+            this.decrypt_textBox.Location = new System.Drawing.Point(16, 125);
             this.decrypt_textBox.Multiline = true;
             this.decrypt_textBox.Name = "decrypt_textBox";
-            this.decrypt_textBox.Size = new System.Drawing.Size(484, 54);
+            this.decrypt_textBox.Size = new System.Drawing.Size(361, 36);
             this.decrypt_textBox.TabIndex = 11;
             this.decrypt_textBox.Visible = false;
             // 
             // decrypt_label
             // 
             this.decrypt_label.AutoSize = true;
-            this.decrypt_label.Location = new System.Drawing.Point(12, 315);
+            this.decrypt_label.Location = new System.Drawing.Point(3, 109);
             this.decrypt_label.Name = "decrypt_label";
-            this.decrypt_label.Size = new System.Drawing.Size(58, 13);
+            this.decrypt_label.Size = new System.Drawing.Size(68, 13);
             this.decrypt_label.TabIndex = 12;
             this.decrypt_label.Text = "Decryption";
             this.decrypt_label.Visible = false;
             this.decrypt_label.Click += new System.EventHandler(this.label1_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.textLocalPort);
+            this.groupBox1.Controls.Add(this.textLocalIp);
+            this.groupBox1.Controls.Add(this.portLabel1);
+            this.groupBox1.Controls.Add(this.ipLabel1);
+            this.groupBox1.Location = new System.Drawing.Point(14, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(300, 102);
+            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Me";
+            // 
+            // textLocalPort
+            // 
+            this.textLocalPort.Location = new System.Drawing.Point(96, 62);
+            this.textLocalPort.Name = "textLocalPort";
+            this.textLocalPort.Size = new System.Drawing.Size(180, 20);
+            this.textLocalPort.TabIndex = 3;
+            // 
+            // textLocalIp
+            // 
+            this.textLocalIp.Location = new System.Drawing.Point(96, 30);
+            this.textLocalIp.Name = "textLocalIp";
+            this.textLocalIp.Size = new System.Drawing.Size(180, 20);
+            this.textLocalIp.TabIndex = 2;
+            // 
+            // portLabel1
+            // 
+            this.portLabel1.AutoSize = true;
+            this.portLabel1.Location = new System.Drawing.Point(8, 69);
+            this.portLabel1.Name = "portLabel1";
+            this.portLabel1.Size = new System.Drawing.Size(30, 13);
+            this.portLabel1.TabIndex = 1;
+            this.portLabel1.Text = "Port";
+            // 
+            // ipLabel1
+            // 
+            this.ipLabel1.AutoSize = true;
+            this.ipLabel1.Location = new System.Drawing.Point(8, 30);
+            this.ipLabel1.Name = "ipLabel1";
+            this.ipLabel1.Size = new System.Drawing.Size(19, 13);
+            this.ipLabel1.TabIndex = 0;
+            this.ipLabel1.Text = "IP";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.textRemoteIP);
+            this.groupBox2.Controls.Add(this.textRemotePort);
+            this.groupBox2.Controls.Add(this.iplabel2);
+            this.groupBox2.Controls.Add(this.portlabel2);
+            this.groupBox2.Location = new System.Drawing.Point(320, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(297, 102);
+            this.groupBox2.TabIndex = 14;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Friend";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // textRemoteIP
+            // 
+            this.textRemoteIP.Location = new System.Drawing.Point(92, 27);
+            this.textRemoteIP.Name = "textRemoteIP";
+            this.textRemoteIP.Size = new System.Drawing.Size(188, 20);
+            this.textRemoteIP.TabIndex = 4;
+            // 
+            // textRemotePort
+            // 
+            this.textRemotePort.Location = new System.Drawing.Point(92, 66);
+            this.textRemotePort.Name = "textRemotePort";
+            this.textRemotePort.Size = new System.Drawing.Size(188, 20);
+            this.textRemotePort.TabIndex = 5;
+            // 
+            // iplabel2
+            // 
+            this.iplabel2.AutoSize = true;
+            this.iplabel2.Location = new System.Drawing.Point(7, 30);
+            this.iplabel2.Name = "iplabel2";
+            this.iplabel2.Size = new System.Drawing.Size(19, 13);
+            this.iplabel2.TabIndex = 2;
+            this.iplabel2.Text = "IP";
+            // 
+            // portlabel2
+            // 
+            this.portlabel2.AutoSize = true;
+            this.portlabel2.Location = new System.Drawing.Point(7, 69);
+            this.portlabel2.Name = "portlabel2";
+            this.portlabel2.Size = new System.Drawing.Size(30, 13);
+            this.portlabel2.TabIndex = 3;
+            this.portlabel2.Text = "Port";
+            // 
+            // listMessages
+            // 
+            this.listMessages.BackColor = System.Drawing.SystemColors.Window;
+            this.listMessages.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.listMessages.FormattingEnabled = true;
+            this.listMessages.Location = new System.Drawing.Point(14, 146);
+            this.listMessages.Name = "listMessages";
+            this.listMessages.Size = new System.Drawing.Size(333, 329);
+            this.listMessages.TabIndex = 15;
+            // 
+            // buttonSend
+            // 
+            this.buttonSend.Location = new System.Drawing.Point(292, 92);
+            this.buttonSend.Name = "buttonSend";
+            this.buttonSend.Size = new System.Drawing.Size(87, 23);
+            this.buttonSend.TabIndex = 16;
+            this.buttonSend.Text = "Send";
+            this.buttonSend.UseVisualStyleBackColor = true;
+            // 
+            // buttonConnect
+            // 
+            this.buttonConnect.Location = new System.Drawing.Point(644, 55);
+            this.buttonConnect.Name = "buttonConnect";
+            this.buttonConnect.Size = new System.Drawing.Size(87, 23);
+            this.buttonConnect.TabIndex = 17;
+            this.buttonConnect.Text = "Connect";
+            this.buttonConnect.UseVisualStyleBackColor = true;
+            this.buttonConnect.Click += new System.EventHandler(this.buttonConnect_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.input_textBox);
+            this.groupBox3.Controls.Add(this.input_message);
+            this.groupBox3.Controls.Add(this.key_label);
+            this.groupBox3.Controls.Add(this.Key_textBox);
+            this.groupBox3.Controls.Add(this.buttonSend);
+            this.groupBox3.Location = new System.Drawing.Point(357, 144);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(385, 158);
+            this.groupBox3.TabIndex = 18;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = " (Use only characters \"a - z\")";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.Vigenere_Button);
+            this.groupBox4.Controls.Add(this.Encrypt_textBox);
+            this.groupBox4.Controls.Add(this.encrypt_label);
+            this.groupBox4.Controls.Add(this.decrypt_label);
+            this.groupBox4.Controls.Add(this.decrypt_textBox);
+            this.groupBox4.Location = new System.Drawing.Point(357, 308);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(385, 167);
+            this.groupBox4.TabIndex = 19;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Cryptography Algorithm";
+            // 
+            // chatBoxLabel
+            // 
+            this.chatBoxLabel.AutoSize = true;
+            this.chatBoxLabel.Location = new System.Drawing.Point(14, 127);
+            this.chatBoxLabel.Name = "chatBoxLabel";
+            this.chatBoxLabel.Size = new System.Drawing.Size(58, 13);
+            this.chatBoxLabel.TabIndex = 20;
+            this.chatBoxLabel.Text = "Chat Box";
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(533, 416);
-            this.Controls.Add(this.decrypt_label);
-            this.Controls.Add(this.decrypt_textBox);
-            this.Controls.Add(this.Key_textBox);
-            this.Controls.Add(this.key_label);
-            this.Controls.Add(this.Exit_button);
-            this.Controls.Add(this.Vigenere_Button);
-            this.Controls.Add(this.Play_Fair_Button);
-            this.Controls.Add(this.Choosealgorithm_label);
-            this.Controls.Add(this.encrypt_label);
-            this.Controls.Add(this.input_message);
-            this.Controls.Add(this.Encrypt_textBox);
-            this.Controls.Add(this.input_textBox);
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.ClientSize = new System.Drawing.Size(756, 487);
+            this.Controls.Add(this.chatBoxLabel);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.buttonConnect);
+            this.Controls.Add(this.listMessages);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.Name = "Form1";
-            this.Text = "Interface";
+            this.Text = "Hassan-Chat-Box";
+            this.TransparencyKey = System.Drawing.Color.DarkGreen;
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -188,14 +339,27 @@
         private System.Windows.Forms.TextBox Encrypt_textBox;
         private System.Windows.Forms.Label input_message;
         private System.Windows.Forms.Label encrypt_label;
-        private System.Windows.Forms.Label Choosealgorithm_label;
-        private System.Windows.Forms.RadioButton Play_Fair_Button;
         private System.Windows.Forms.RadioButton Vigenere_Button;
-        private System.Windows.Forms.Button Exit_button;
         private System.Windows.Forms.Label key_label;
         private System.Windows.Forms.TextBox Key_textBox;
         private System.Windows.Forms.TextBox decrypt_textBox;
         private System.Windows.Forms.Label decrypt_label;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox textLocalPort;
+        private System.Windows.Forms.TextBox textLocalIp;
+        private System.Windows.Forms.Label portLabel1;
+        private System.Windows.Forms.Label ipLabel1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox textRemoteIP;
+        private System.Windows.Forms.TextBox textRemotePort;
+        private System.Windows.Forms.Label iplabel2;
+        private System.Windows.Forms.Label portlabel2;
+        private System.Windows.Forms.ListBox listMessages;
+        private System.Windows.Forms.Button buttonSend;
+        private System.Windows.Forms.Button buttonConnect;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label chatBoxLabel;
     }
 }
 
