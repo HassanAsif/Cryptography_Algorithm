@@ -53,6 +53,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.chatBoxLabel = new System.Windows.Forms.Label();
+            this.RSAButton = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -110,7 +111,7 @@
             // key_label
             // 
             this.key_label.AutoSize = true;
-            this.key_label.Location = new System.Drawing.Point(13, 114);
+            this.key_label.Location = new System.Drawing.Point(6, 99);
             this.key_label.Name = "key_label";
             this.key_label.Size = new System.Drawing.Size(36, 13);
             this.key_label.TabIndex = 9;
@@ -118,7 +119,7 @@
             // 
             // Key_textBox
             // 
-            this.Key_textBox.Location = new System.Drawing.Point(68, 114);
+            this.Key_textBox.Location = new System.Drawing.Point(68, 99);
             this.Key_textBox.Multiline = true;
             this.Key_textBox.Name = "Key_textBox";
             this.Key_textBox.Size = new System.Drawing.Size(200, 27);
@@ -126,7 +127,7 @@
             // 
             // decrypt_textBox
             // 
-            this.decrypt_textBox.Location = new System.Drawing.Point(16, 125);
+            this.decrypt_textBox.Location = new System.Drawing.Point(16, 143);
             this.decrypt_textBox.Multiline = true;
             this.decrypt_textBox.Name = "decrypt_textBox";
             this.decrypt_textBox.Size = new System.Drawing.Size(361, 36);
@@ -136,7 +137,7 @@
             // decrypt_label
             // 
             this.decrypt_label.AutoSize = true;
-            this.decrypt_label.Location = new System.Drawing.Point(3, 109);
+            this.decrypt_label.Location = new System.Drawing.Point(6, 127);
             this.decrypt_label.Name = "decrypt_label";
             this.decrypt_label.Size = new System.Drawing.Size(68, 13);
             this.decrypt_label.TabIndex = 12;
@@ -247,12 +248,14 @@
             // 
             // buttonSend
             // 
-            this.buttonSend.Location = new System.Drawing.Point(292, 92);
+            this.buttonSend.Location = new System.Drawing.Point(290, 102);
             this.buttonSend.Name = "buttonSend";
             this.buttonSend.Size = new System.Drawing.Size(87, 23);
             this.buttonSend.TabIndex = 16;
             this.buttonSend.Text = "Send";
             this.buttonSend.UseVisualStyleBackColor = true;
+            this.buttonSend.Visible = false;
+            this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
             // 
             // buttonConnect
             // 
@@ -270,27 +273,29 @@
             this.groupBox3.Controls.Add(this.input_message);
             this.groupBox3.Controls.Add(this.key_label);
             this.groupBox3.Controls.Add(this.Key_textBox);
-            this.groupBox3.Controls.Add(this.buttonSend);
             this.groupBox3.Location = new System.Drawing.Point(357, 144);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(385, 158);
+            this.groupBox3.Size = new System.Drawing.Size(385, 140);
             this.groupBox3.TabIndex = 18;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = " (Use only characters \"a - z\")";
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.RSAButton);
             this.groupBox4.Controls.Add(this.Vigenere_Button);
             this.groupBox4.Controls.Add(this.Encrypt_textBox);
             this.groupBox4.Controls.Add(this.encrypt_label);
             this.groupBox4.Controls.Add(this.decrypt_label);
+            this.groupBox4.Controls.Add(this.buttonSend);
             this.groupBox4.Controls.Add(this.decrypt_textBox);
-            this.groupBox4.Location = new System.Drawing.Point(357, 308);
+            this.groupBox4.Location = new System.Drawing.Point(357, 290);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(385, 167);
+            this.groupBox4.Size = new System.Drawing.Size(385, 185);
             this.groupBox4.TabIndex = 19;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Cryptography Algorithm";
+            this.groupBox4.Text = "Encrypt Message using Cryptography Algorithm";
+            this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
             // 
             // chatBoxLabel
             // 
@@ -300,6 +305,18 @@
             this.chatBoxLabel.Size = new System.Drawing.Size(58, 13);
             this.chatBoxLabel.TabIndex = 20;
             this.chatBoxLabel.Text = "Chat Box";
+            // 
+            // RSAButton
+            // 
+            this.RSAButton.AutoSize = true;
+            this.RSAButton.Location = new System.Drawing.Point(169, 20);
+            this.RSAButton.Name = "RSAButton";
+            this.RSAButton.Size = new System.Drawing.Size(50, 17);
+            this.RSAButton.TabIndex = 17;
+            this.RSAButton.TabStop = true;
+            this.RSAButton.Text = "RSA";
+            this.RSAButton.UseVisualStyleBackColor = true;
+            this.RSAButton.CheckedChanged += new System.EventHandler(this.RSAButton_CheckedChanged);
             // 
             // Form1
             // 
@@ -360,6 +377,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label chatBoxLabel;
+        private System.Windows.Forms.RadioButton RSAButton;
     }
 }
 

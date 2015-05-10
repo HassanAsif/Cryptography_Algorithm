@@ -58,6 +58,7 @@ namespace Cryptography_Algorithm_Project
 
         private void Vigenere_Button_CheckedChanged(object sender, EventArgs e)
         {
+          
             if (Key_textBox.TextLength != 0 && input_textBox.TextLength != 0)
             {
                 string input_message = input_textBox.Text.ToUpper();
@@ -67,7 +68,7 @@ namespace Cryptography_Algorithm_Project
                 encrypt_label.Visible = true;
                 Encrypt_textBox.Visible = true;
                 Encrypt_textBox.Text = get_encrypted_message;
-                
+                buttonSend.Visible=true;
                 string get_decrypt_message = "";
                 get_decrypt_message = obj.decrypt_message(get_encrypted_message);
                 decrypt_label.Visible = true;
@@ -79,6 +80,7 @@ namespace Cryptography_Algorithm_Project
             {
                 MessageBox.Show("Message Text Box or Key Text Box is empty.");
             }
+          
         }
 
         //private void Exit_button_Click(object sender, EventArgs e)
@@ -106,15 +108,69 @@ namespace Cryptography_Algorithm_Project
             sck.Connect(epRemote);
             //Listening the Specific Port
             buffer = new byte[1500];
-            sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
-
-
-            
+            sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer); 
         }
         private void MessageCallBack(IAsyncResult aResult)
         {
+            try
+            {
+                byte[] receiveddata = new byte[1500];
+                receiveddata = ((byte[])aResult.AsyncState);
+                //Converting Byte Array to string
+                ASCIIEncoding aEncoding = new ASCIIEncoding();
+                string receivedmessage = aEncoding.GetString(receiveddata);
+                //Adding message to list-of-messages
+                listMessages.Items.Add("Friend : " + receivedmessage);
+                //Again Calling Function "MessageCallback"
+                buffer = new byte[1500];
+                sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
 
+        private void buttonSend_Click(object sender, EventArgs e)
+        {
+            //Convert String into ByteArray
+            ASCIIEncoding aEncoding = new ASCIIEncoding();
+            byte[] sendingmessage = new byte[1500];
+            sendingmessage = aEncoding.GetBytes(Encrypt_textBox.Text);
+            //Sending Message
+            sck.Send(sendingmessage);
+            //Adding to list-box
+            listMessages.Items.Add("Me : " + input_textBox.Text);
+        }
 
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RSAButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Key_textBox.TextLength != 0 && input_textBox.TextLength != 0)
+            {
+                string input_message = input_textBox.Text.ToUpper();
+                string input_key = Key_textBox.Text.ToUpper();
+               // Vigenere_Algorithm obj = new Vigenere_Algorithm(input_key);
+               // string get_encrypted_message = obj.encrypt_message(input_message);
+                encrypt_label.Visible = true;
+                Encrypt_textBox.Visible = true;
+               // Encrypt_textBox.Text = get_encrypted_message;
+                buttonSend.Visible = true;
+              //  string get_decrypt_message = "";
+              //  get_decrypt_message = obj.decrypt_message(get_encrypted_message);
+                decrypt_label.Visible = true;
+                decrypt_textBox.Visible = true;
+                //decrypt_textBox.Text = get_decrypt_message;
+
+            }
+            else
+            {
+                MessageBox.Show("Message Text Box or Key Text Box is empty.");
+            }
         }
         
       
