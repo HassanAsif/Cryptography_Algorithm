@@ -74,7 +74,9 @@ namespace Cryptography_Algorithm_Project
                 decrypt_label.Visible = true;
                 decrypt_textBox.Visible = true;
                 decrypt_textBox.Text = get_decrypt_message;
-                
+                input_textBox.Text = " ";
+                Key_textBox.Text = " ";
+               // Vigenere_Button.Click = false;
             }
             else
             {
