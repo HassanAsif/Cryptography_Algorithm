@@ -15,6 +15,7 @@ namespace Cryptography_Algorithm_Project
 {
     public partial class Form1 : Form
     {
+        string input_key1;
         Socket sck;
         //EndPoints
         EndPoint epLocal, epRemote;
@@ -63,6 +64,7 @@ namespace Cryptography_Algorithm_Project
             {
                 string input_message = input_textBox.Text.ToUpper();
                 string input_key = Key_textBox.Text.ToUpper();
+                 input_key1 = input_key;
                 Vigenere_Algorithm obj = new Vigenere_Algorithm(input_key);
                 string get_encrypted_message = obj.encrypt_message(input_message);
                 encrypt_label.Visible = true;
@@ -77,6 +79,7 @@ namespace Cryptography_Algorithm_Project
                 input_textBox.Text = " ";
                 Key_textBox.Text = " ";
                // Vigenere_Button.Click = false;
+
             }
             else
             {
@@ -84,7 +87,7 @@ namespace Cryptography_Algorithm_Project
             }
           
         }
-
+      
         //private void Exit_button_Click(object sender, EventArgs e)
         //{
         //    Environment.Exit(0);
@@ -116,11 +119,14 @@ namespace Cryptography_Algorithm_Project
         {
             try
             {
+                Vigenere_Algorithm obj1=new Vigenere_Algorithm(input_key1);
                 byte[] receiveddata = new byte[1500];
                 receiveddata = ((byte[])aResult.AsyncState);
                 //Converting Byte Array to string
                 ASCIIEncoding aEncoding = new ASCIIEncoding();
                 string receivedmessage = aEncoding.GetString(receiveddata);
+                string get_decrypt_message = "";
+             //   get_decrypt_message = obj1.decrypt_message(receivedmessage);
                 //Adding message to list-of-messages
                 listMessages.Items.Add("Friend : " + receivedmessage);
                 //Again Calling Function "MessageCallback"
@@ -167,6 +173,8 @@ namespace Cryptography_Algorithm_Project
                 decrypt_label.Visible = true;
                 decrypt_textBox.Visible = true;
                 //decrypt_textBox.Text = get_decrypt_message;
+                input_textBox.Text = " ";
+                Key_textBox.Text = " ";
 
             }
             else
