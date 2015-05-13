@@ -16,10 +16,7 @@ namespace Cryptography_Algorithm_Project
 {
     public partial class Form1 : Form
     {
-        UnicodeEncoding ByteConverter = new UnicodeEncoding();
-        RSACryptoServiceProvider RSA = new RSACryptoServiceProvider();
-        byte[] plaintext;
-        byte[] encryptedtext; 
+       
         string input_key1;
         Socket sck;
         //EndPoints
@@ -64,36 +61,61 @@ namespace Cryptography_Algorithm_Project
 
         private void Vigenere_Button_CheckedChanged(object sender, EventArgs e)
         {
-           
-            if (Key_textBox.TextLength!=0 && input_textBox.TextLength != 0)
+            char check_validity;
+            if (Key_textBox.TextLength != 0 && input_textBox.TextLength != 0)
             {
-                encryptdecryptsendgroupBox.Visible = true;
-           
-                string input_message = input_textBox.Text.ToUpper();
-                string input_key = Key_textBox.Text.ToUpper();
-                 input_key1 = input_key;
-                
-                Vigenere_Algorithm obj = new Vigenere_Algorithm(input_key);
-                string get_encrypted_message = obj.encrypt_message(input_message);
-                encrypt_label.Visible = true;
-                VigenereEncrypt_textBox.Visible = true;
-                VigenereEncrypt_textBox.Text = get_encrypted_message;
-                VigenerebuttonSend.Visible=true;
-                string get_decrypt_message = "";
-                get_decrypt_message = obj.decrypt_message(get_encrypted_message);
-                decrypt_label.Visible = true;
-                Vigeneredecrypt_textBox.Visible = true;
-                Vigeneredecrypt_textBox.Text = get_decrypt_message;
-                input_textBox.Text = " ";
-                Key_textBox.Text = " ";
-               // Vigenere_Button.Click = false;
 
+                int count = 0;
+                    encryptdecryptsendgroupBox.Visible = true;
+
+                    string input_message = input_textBox.Text.ToUpper();
+                    string input_key = Key_textBox.Text.ToUpper();
+                    input_key1 = input_key;
+                    for (int i = 0; i < input_key.Length;i++ )
+                    {
+                        check_validity=input_key[i];
+                        if (check_validity >= 'A' && check_validity <= 'Z')
+                        {
+                            count++;
+
+                        }
+                       
+                    }
+                  //  MessageBox.Show("Count :: " +count);
+                    if (count == input_key.Length)
+                    {
+                        MessageBox.Show("Valid Key. Click Ok to proceed.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid Key input. Enter again key (key must be in characters 'a' to 'z')");
+                        Key_textBox.Text = " ";
+                        
+                    }
+                            Vigenere_Algorithm obj = new Vigenere_Algorithm(input_key);
+                            string get_encrypted_message = obj.encrypt_message(input_message);
+                            encrypt_label.Visible = true;
+                            VigenereEncrypt_textBox.Visible = true;
+                            VigenereEncrypt_textBox.Text = get_encrypted_message;
+                            VigenerebuttonSend.Visible = true;
+                            string get_decrypt_message = "";
+                            get_decrypt_message = obj.decrypt_message(get_encrypted_message);
+                            decrypt_label.Visible = true;
+                            Vigeneredecrypt_textBox.Visible = true;
+                            Vigeneredecrypt_textBox.Text = get_decrypt_message;
+                            input_textBox.Text = " ";
+                            Key_textBox.Text = " ";
+                            //Vigenere_Button.Click = false;
+
+                        
+                        
             }
             else
             {
                 MessageBox.Show("Message Text Box or Key Text box is empty.");
             }
-
+            
+            
           
         }
      
@@ -121,8 +143,10 @@ namespace Cryptography_Algorithm_Project
             //Connecting to Remote IP
             epRemote = new IPEndPoint(IPAddress.Parse( textRemoteIP .Text), Convert.ToInt32(textRemotePort.Text));
             sck.Connect(epRemote);
+            MessageBox.Show("Connected succssfully. Click ok to proceed further.");
             //Listening the Specific Port
             buffer = new byte[1500];
+           
             sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer); 
         }
         private void MessageCallBack(IAsyncResult aResult)
@@ -135,7 +159,7 @@ namespace Cryptography_Algorithm_Project
                 //Converting Byte Array to string
                 ASCIIEncoding aEncoding = new ASCIIEncoding();
                 string receivedmessage = aEncoding.GetString(receiveddata);
-                string get_decrypt_message = "";
+                
              //   get_decrypt_message = obj1.decrypt_message(receivedmessage);
                 //Adding message to list-of-messages
                 listMessages.Items.Add("Friend : " + receivedmessage);
@@ -165,15 +189,18 @@ namespace Cryptography_Algorithm_Project
         {
 
         }
+        // RSA Cipher Functionality
+        UnicodeEncoding ByteConverter = new UnicodeEncoding();
+        RSACryptoServiceProvider RSA = new RSACryptoServiceProvider();
+        byte[] plaintext;
+        byte[] encryptedtext; 
 
         private void RSAButton_CheckedChanged(object sender, EventArgs e)
         {
             if (input_textBox.TextLength != 0)
             {
                 RSAgroupBox.Visible = true;
-                string input_message = input_textBox.Text.ToUpper();
                 
-
             }
             else
             {
@@ -183,7 +210,7 @@ namespace Cryptography_Algorithm_Project
 
         private void RSAgroupBox_Enter(object sender, EventArgs e)
         {
-
+            RSASendbutton.Visible = true;
         }
         //..............   RSA Cipher Functions ....................
         static public byte[] Encryption(byte[] Data, RSAParameters RSAKey, bool DoOAEPPadding)

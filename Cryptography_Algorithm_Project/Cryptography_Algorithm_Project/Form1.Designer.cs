@@ -374,7 +374,7 @@
             this.RSASendbutton.Name = "RSASendbutton";
             this.RSASendbutton.Size = new System.Drawing.Size(87, 23);
             this.RSASendbutton.TabIndex = 16;
-            this.RSASendbutton.Text = "Send";
+            this.RSASendbutton.Text = "Sending";
             this.RSASendbutton.UseVisualStyleBackColor = true;
             this.RSASendbutton.Visible = false;
             this.RSASendbutton.Click += new System.EventHandler(this.RSASendbutton_Click);
