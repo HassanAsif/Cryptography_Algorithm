@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
 using System.Net;
 using System.Net.Sockets;
 using System.Windows.Forms;
@@ -15,6 +16,10 @@ namespace Cryptography_Algorithm_Project
 {
     public partial class Form1 : Form
     {
+        UnicodeEncoding ByteConverter = new UnicodeEncoding();
+        RSACryptoServiceProvider RSA = new RSACryptoServiceProvider();
+        byte[] plaintext;
+        byte[] encryptedtext; 
         string input_key1;
         Socket sck;
         //EndPoints
@@ -59,23 +64,26 @@ namespace Cryptography_Algorithm_Project
 
         private void Vigenere_Button_CheckedChanged(object sender, EventArgs e)
         {
-          
-            if (Key_textBox.TextLength != 0 && input_textBox.TextLength != 0)
+           
+            if (Key_textBox.TextLength!=0 && input_textBox.TextLength != 0)
             {
+                encryptdecryptsendgroupBox.Visible = true;
+           
                 string input_message = input_textBox.Text.ToUpper();
                 string input_key = Key_textBox.Text.ToUpper();
                  input_key1 = input_key;
+                
                 Vigenere_Algorithm obj = new Vigenere_Algorithm(input_key);
                 string get_encrypted_message = obj.encrypt_message(input_message);
                 encrypt_label.Visible = true;
-                Encrypt_textBox.Visible = true;
-                Encrypt_textBox.Text = get_encrypted_message;
-                buttonSend.Visible=true;
+                VigenereEncrypt_textBox.Visible = true;
+                VigenereEncrypt_textBox.Text = get_encrypted_message;
+                VigenerebuttonSend.Visible=true;
                 string get_decrypt_message = "";
                 get_decrypt_message = obj.decrypt_message(get_encrypted_message);
                 decrypt_label.Visible = true;
-                decrypt_textBox.Visible = true;
-                decrypt_textBox.Text = get_decrypt_message;
+                Vigeneredecrypt_textBox.Visible = true;
+                Vigeneredecrypt_textBox.Text = get_decrypt_message;
                 input_textBox.Text = " ";
                 Key_textBox.Text = " ";
                // Vigenere_Button.Click = false;
@@ -83,10 +91,12 @@ namespace Cryptography_Algorithm_Project
             }
             else
             {
-                MessageBox.Show("Message Text Box or Key Text Box is empty.");
+                MessageBox.Show("Message Text Box or Key Text box is empty.");
             }
+
           
         }
+     
       
         //private void Exit_button_Click(object sender, EventArgs e)
         //{
@@ -144,7 +154,7 @@ namespace Cryptography_Algorithm_Project
             //Convert String into ByteArray
             ASCIIEncoding aEncoding = new ASCIIEncoding();
             byte[] sendingmessage = new byte[1500];
-            sendingmessage = aEncoding.GetBytes(Encrypt_textBox.Text);
+            sendingmessage = aEncoding.GetBytes(VigenereEncrypt_textBox.Text);
             //Sending Message
             sck.Send(sendingmessage);
             //Adding to list-box
@@ -158,29 +168,96 @@ namespace Cryptography_Algorithm_Project
 
         private void RSAButton_CheckedChanged(object sender, EventArgs e)
         {
-            if (Key_textBox.TextLength != 0 && input_textBox.TextLength != 0)
+            if (input_textBox.TextLength != 0)
             {
+                RSAgroupBox.Visible = true;
                 string input_message = input_textBox.Text.ToUpper();
-                string input_key = Key_textBox.Text.ToUpper();
-               // Vigenere_Algorithm obj = new Vigenere_Algorithm(input_key);
-               // string get_encrypted_message = obj.encrypt_message(input_message);
-                encrypt_label.Visible = true;
-                Encrypt_textBox.Visible = true;
-               // Encrypt_textBox.Text = get_encrypted_message;
-                buttonSend.Visible = true;
-              //  string get_decrypt_message = "";
-              //  get_decrypt_message = obj.decrypt_message(get_encrypted_message);
-                decrypt_label.Visible = true;
-                decrypt_textBox.Visible = true;
-                //decrypt_textBox.Text = get_decrypt_message;
-                input_textBox.Text = " ";
-                Key_textBox.Text = " ";
+                
 
             }
             else
             {
-                MessageBox.Show("Message Text Box or Key Text Box is empty.");
+                MessageBox.Show("Message Text Box is empty.");
             }
+        }
+
+        private void RSAgroupBox_Enter(object sender, EventArgs e)
+        {
+
+        }
+        //..............   RSA Cipher Functions ....................
+        static public byte[] Encryption(byte[] Data, RSAParameters RSAKey, bool DoOAEPPadding)
+        {
+            try
+            {
+                byte[] encryptedData;
+                using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
+                {
+                    RSA.ImportParameters(RSAKey); encryptedData = RSA.Encrypt(Data, DoOAEPPadding);
+                } return encryptedData;
+            }
+            catch (CryptographicException e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+        }
+        //.......................................................
+        static public byte[] Decryption(byte[] Data, RSAParameters RSAKey, bool DoOAEPPadding)
+        {
+            try
+            {
+                byte[] decryptedData;
+                using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
+                {
+                    RSA.ImportParameters(RSAKey);
+                    decryptedData = RSA.Decrypt(Data, DoOAEPPadding);
+                }
+                return decryptedData;
+            }
+            catch (CryptographicException e)
+            {
+                Console.WriteLine(e.ToString());
+                return null;
+            }
+        }
+        //....................................................................
+
+        private void RSAEncryptbutton_Click(object sender, EventArgs e)
+        {
+            EncryptRSAtextBox.Visible = true;
+            plaintext = ByteConverter.GetBytes(input_textBox.Text);
+            encryptedtext = Encryption(plaintext, RSA.ExportParameters(false), false);
+            EncryptRSAtextBox.Text = ByteConverter.GetString(encryptedtext);
+        }
+
+        private void EncryptRSAtextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RSADecryptbutton_Click(object sender, EventArgs e)
+        {
+            DecryptRSAtextBox.Visible = true;
+            byte[] decryptedtex = Decryption(encryptedtext, RSA.ExportParameters(true), false);
+            DecryptRSAtextBox.Text = ByteConverter.GetString(decryptedtex);
+        }
+
+        private void DecryptRSAtextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RSASendbutton_Click(object sender, EventArgs e)
+        {
+            //Convert String into ByteArray
+            ASCIIEncoding aEncoding = new ASCIIEncoding();
+            byte[] sendingmessage = new byte[1500];
+            sendingmessage = aEncoding.GetBytes(VigenereEncrypt_textBox.Text);
+            //Sending Message
+            sck.Send(sendingmessage);
+            //Adding to list-box
+            listMessages.Items.Add("Me : " + input_textBox.Text);
         }
         
       
