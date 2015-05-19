@@ -61,12 +61,22 @@
             this.RSASendbutton = new System.Windows.Forms.Button();
             this.DecryptRSAtextBox = new System.Windows.Forms.TextBox();
             this.EncryptRSAtextBox = new System.Windows.Forms.TextBox();
+            this.Create_label = new System.Windows.Forms.Label();
+            this.Login_panel = new System.Windows.Forms.Panel();
+            this.logingroupBox = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label = new System.Windows.Forms.Label();
+            this.user_textBox = new System.Windows.Forms.TextBox();
+            this.pass_textBox = new System.Windows.Forms.TextBox();
+            this.password_label = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.encryptdecryptsendgroupBox.SuspendLayout();
             this.RSAgroupBox.SuspendLayout();
+            this.Login_panel.SuspendLayout();
+            this.logingroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // input_textBox
@@ -156,7 +166,7 @@
             this.groupBox1.Controls.Add(this.textLocalIp);
             this.groupBox1.Controls.Add(this.portLabel1);
             this.groupBox1.Controls.Add(this.ipLabel1);
-            this.groupBox1.Location = new System.Drawing.Point(14, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 22);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(331, 102);
             this.groupBox1.TabIndex = 13;
@@ -201,7 +211,7 @@
             this.groupBox2.Controls.Add(this.textRemotePort);
             this.groupBox2.Controls.Add(this.iplabel2);
             this.groupBox2.Controls.Add(this.portlabel2);
-            this.groupBox2.Location = new System.Drawing.Point(365, 12);
+            this.groupBox2.Location = new System.Drawing.Point(367, 22);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(332, 102);
             this.groupBox2.TabIndex = 14;
@@ -243,8 +253,8 @@
             // 
             // listMessages
             // 
-            this.listMessages.BackColor = System.Drawing.SystemColors.Window;
-            this.listMessages.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.listMessages.BackColor = System.Drawing.Color.LavenderBlush;
+            this.listMessages.ForeColor = System.Drawing.Color.Crimson;
             this.listMessages.FormattingEnabled = true;
             this.listMessages.Location = new System.Drawing.Point(12, 146);
             this.listMessages.Name = "listMessages";
@@ -263,6 +273,7 @@
             // 
             // buttonConnect
             // 
+            this.buttonConnect.ForeColor = System.Drawing.Color.Blue;
             this.buttonConnect.Location = new System.Drawing.Point(714, 54);
             this.buttonConnect.Name = "buttonConnect";
             this.buttonConnect.Size = new System.Drawing.Size(87, 23);
@@ -399,12 +410,95 @@
             this.EncryptRSAtextBox.Visible = false;
             this.EncryptRSAtextBox.TextChanged += new System.EventHandler(this.EncryptRSAtextBox_TextChanged);
             // 
+            // Create_label
+            // 
+            this.Create_label.AutoSize = true;
+            this.Create_label.ForeColor = System.Drawing.Color.Blue;
+            this.Create_label.Location = new System.Drawing.Point(199, 6);
+            this.Create_label.Name = "Create_label";
+            this.Create_label.Size = new System.Drawing.Size(305, 13);
+            this.Create_label.TabIndex = 24;
+            this.Create_label.Text = "Create Connection  for conersation over the network";
+            // 
+            // Login_panel
+            // 
+            this.Login_panel.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.Login_panel.Controls.Add(this.logingroupBox);
+            this.Login_panel.Location = new System.Drawing.Point(0, -1);
+            this.Login_panel.Name = "Login_panel";
+            this.Login_panel.Size = new System.Drawing.Size(840, 476);
+            this.Login_panel.TabIndex = 25;
+            // 
+            // logingroupBox
+            // 
+            this.logingroupBox.BackColor = System.Drawing.SystemColors.WindowText;
+            this.logingroupBox.Controls.Add(this.password_label);
+            this.logingroupBox.Controls.Add(this.pass_textBox);
+            this.logingroupBox.Controls.Add(this.user_textBox);
+            this.logingroupBox.Controls.Add(this.label);
+            this.logingroupBox.Controls.Add(this.button1);
+            this.logingroupBox.ForeColor = System.Drawing.Color.IndianRed;
+            this.logingroupBox.Location = new System.Drawing.Point(108, 92);
+            this.logingroupBox.Name = "logingroupBox";
+            this.logingroupBox.Size = new System.Drawing.Size(563, 245);
+            this.logingroupBox.TabIndex = 0;
+            this.logingroupBox.TabStop = false;
+            this.logingroupBox.Text = "Enter user-name and password to login into system";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Maroon;
+            this.button1.ForeColor = System.Drawing.Color.Yellow;
+            this.button1.Location = new System.Drawing.Point(312, 175);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(92, 32);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Login";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Location = new System.Drawing.Point(26, 39);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(80, 13);
+            this.label.TabIndex = 1;
+            this.label.Text = "USER NAME";
+            // 
+            // user_textBox
+            // 
+            this.user_textBox.Location = new System.Drawing.Point(167, 35);
+            this.user_textBox.Multiline = true;
+            this.user_textBox.Name = "user_textBox";
+            this.user_textBox.Size = new System.Drawing.Size(237, 34);
+            this.user_textBox.TabIndex = 2;
+            // 
+            // pass_textBox
+            // 
+            this.pass_textBox.Location = new System.Drawing.Point(167, 112);
+            this.pass_textBox.Multiline = true;
+            this.pass_textBox.Name = "pass_textBox";
+            this.pass_textBox.Size = new System.Drawing.Size(237, 37);
+            this.pass_textBox.TabIndex = 3;
+            // 
+            // password_label
+            // 
+            this.password_label.AutoSize = true;
+            this.password_label.Location = new System.Drawing.Point(26, 119);
+            this.password_label.Name = "password_label";
+            this.password_label.Size = new System.Drawing.Size(135, 13);
+            this.password_label.TabIndex = 4;
+            this.password_label.Text = "PIN NO / PASSWORD";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.BackColor = System.Drawing.SystemColors.GrayText;
             this.ClientSize = new System.Drawing.Size(838, 487);
+            this.Controls.Add(this.Login_panel);
+            this.Controls.Add(this.Create_label);
             this.Controls.Add(this.RSAgroupBox);
             this.Controls.Add(this.encryptdecryptsendgroupBox);
             this.Controls.Add(this.chatBoxLabel);
@@ -414,8 +508,8 @@
             this.Controls.Add(this.listMessages);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.Maroon;
             this.Name = "Form1";
             this.Text = "Hassan-Chat-Box";
             this.TransparencyKey = System.Drawing.Color.DarkGreen;
@@ -432,6 +526,9 @@
             this.encryptdecryptsendgroupBox.PerformLayout();
             this.RSAgroupBox.ResumeLayout(false);
             this.RSAgroupBox.PerformLayout();
+            this.Login_panel.ResumeLayout(false);
+            this.logingroupBox.ResumeLayout(false);
+            this.logingroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -472,6 +569,14 @@
         private System.Windows.Forms.Button RSASendbutton;
         private System.Windows.Forms.TextBox DecryptRSAtextBox;
         private System.Windows.Forms.TextBox EncryptRSAtextBox;
+        private System.Windows.Forms.Label Create_label;
+        private System.Windows.Forms.Panel Login_panel;
+        private System.Windows.Forms.GroupBox logingroupBox;
+        private System.Windows.Forms.Label password_label;
+        private System.Windows.Forms.TextBox pass_textBox;
+        private System.Windows.Forms.TextBox user_textBox;
+        private System.Windows.Forms.Label label;
+        private System.Windows.Forms.Button button1;
     }
 }
 
