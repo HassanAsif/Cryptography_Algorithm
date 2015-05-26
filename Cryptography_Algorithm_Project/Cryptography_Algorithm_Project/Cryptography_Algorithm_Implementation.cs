@@ -8,6 +8,7 @@ using System.Web;
 using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
+using System.Speech.Synthesis;
 using System.Net;
 using System.Net.Sockets;
 using System.Windows.Forms;
@@ -118,16 +119,25 @@ namespace Cryptography_Algorithm_Project
         }
         private void MessageCallBack(IAsyncResult aResult)
         {
+            SpeechSynthesizer speech = new SpeechSynthesizer();
             try
             {
+                
                 byte[] receiveddata = new byte[1500];
                 receiveddata = ((byte[])aResult.AsyncState);
                 //Converting Byte Array to string
                 ASCIIEncoding aEncoding = new ASCIIEncoding();
                 string receivedmessage = aEncoding.GetString(receiveddata);
                 //Adding message to list-of-messages
-                CHAT_HISTORY.Items.Add("Friend: " + receivedmessage);
-               //Again Calling Function "MessageCallback"
+                if (receivedmessage!= null)
+                {
+
+                    speech.Rate = 1;
+                    speech.Volume = 100;
+                    CHAT_HISTORY.Items.Add("Friend: " + receivedmessage);
+                    speech.Speak(receivedmessage);
+                }
+                //Again Calling Function "MessageCallback"
                 buffer = new byte[1500];
                 sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
             }
@@ -266,12 +276,10 @@ namespace Cryptography_Algorithm_Project
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            string user_id = "HassanAsif";
-           
-            string password = "0340";
-            if (user_id == user_textBox.Text && password == pass_textBox.Text)
+           string password = "0340";
+            if (password == pass_textBox.Text)
             {
-                MessageBox.Show("User Name and Password are correct. Click Ok to proceed.");
+                MessageBox.Show("PIN Number correct. Click Ok to proceed.");
                 Login_panel .Hide();
                 Connect_panel.Show();
 
@@ -280,7 +288,7 @@ namespace Cryptography_Algorithm_Project
             else
             {
                 MessageBox.Show("User Name and Password are incorrect.");
-                user_textBox.Text = "";
+               
                 pass_textBox.Text = "";
             }
         }
@@ -298,6 +306,72 @@ namespace Cryptography_Algorithm_Project
         private void Connect_panel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void logingroupBox_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonone_Click(object sender, EventArgs e)
+        {
+            pass_textBox.Text += buttonone.Text;
+        }
+
+        private void twobutton_Click(object sender, EventArgs e)
+        {
+            pass_textBox.Text += twobutton.Text;
+        }
+
+        private void buttonthree_Click(object sender, EventArgs e)
+        {
+            pass_textBox.Text += buttonthree.Text;
+        }
+
+        private void buttonfour_Click(object sender, EventArgs e)
+        {
+            pass_textBox.Text += buttonfour.Text;
+        }
+
+        private void buttonfive_Click(object sender, EventArgs e)
+        {
+            pass_textBox.Text += buttonfive.Text;
+        }
+
+        private void buttonsix_Click(object sender, EventArgs e)
+        {
+            pass_textBox.Text += buttonsix.Text;
+        }
+
+        private void buttonseven_Click(object sender, EventArgs e)
+        {
+            pass_textBox.Text += buttonseven.Text;
+        }
+
+        private void buttoneight_Click(object sender, EventArgs e)
+        {
+            pass_textBox.Text += buttoneight.Text;
+        }
+
+        private void buttonnine_Click(object sender, EventArgs e)
+        {
+            pass_textBox.Text += buttonnine.Text;
+        }
+
+        private void buttonzero_Click(object sender, EventArgs e)
+        {
+            pass_textBox.Text += buttonzero.Text;
+        }
+
+        private void buttoncancel_Click(object sender, EventArgs e)
+        {
+            pass_textBox.Text="";
+        }
+
+        private void buttonlogout_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+            
         }
         
       

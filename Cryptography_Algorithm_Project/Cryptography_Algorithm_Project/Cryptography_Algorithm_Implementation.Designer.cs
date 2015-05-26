@@ -65,11 +65,22 @@
             this.logingroupBox = new System.Windows.Forms.GroupBox();
             this.password_label = new System.Windows.Forms.Label();
             this.pass_textBox = new System.Windows.Forms.TextBox();
-            this.user_textBox = new System.Windows.Forms.TextBox();
-            this.label = new System.Windows.Forms.Label();
             this.Loginbutton = new System.Windows.Forms.Button();
+            this.buttonone = new System.Windows.Forms.Button();
+            this.buttonfive = new System.Windows.Forms.Button();
+            this.buttonsix = new System.Windows.Forms.Button();
+            this.buttonseven = new System.Windows.Forms.Button();
+            this.twobutton = new System.Windows.Forms.Button();
+            this.buttoneight = new System.Windows.Forms.Button();
+            this.buttonzero = new System.Windows.Forms.Button();
+            this.buttonnine = new System.Windows.Forms.Button();
+            this.buttonthree = new System.Windows.Forms.Button();
+            this.buttonfour = new System.Windows.Forms.Button();
+            this.buttoncancel = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.buttonlogout = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -79,6 +90,7 @@
             this.Connect_panel.SuspendLayout();
             this.Login_panel.SuspendLayout();
             this.logingroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -89,7 +101,7 @@
             this.input_textBox.Location = new System.Drawing.Point(12, 53);
             this.input_textBox.Multiline = true;
             this.input_textBox.Name = "input_textBox";
-            this.input_textBox.Size = new System.Drawing.Size(486, 82);
+            this.input_textBox.Size = new System.Drawing.Size(486, 96);
             this.input_textBox.TabIndex = 0;
             // 
             // VigenereEncrypt_textBox
@@ -248,9 +260,9 @@
             this.CHAT_HISTORY.BackColor = System.Drawing.Color.MediumSpringGreen;
             this.CHAT_HISTORY.ForeColor = System.Drawing.Color.Blue;
             this.CHAT_HISTORY.FormattingEnabled = true;
-            this.CHAT_HISTORY.Location = new System.Drawing.Point(510, 16);
+            this.CHAT_HISTORY.Location = new System.Drawing.Point(504, 10);
             this.CHAT_HISTORY.Name = "CHAT_HISTORY";
-            this.CHAT_HISTORY.Size = new System.Drawing.Size(329, 459);
+            this.CHAT_HISTORY.Size = new System.Drawing.Size(335, 472);
             this.CHAT_HISTORY.TabIndex = 15;
             // 
             // VigenerebuttonSend
@@ -280,9 +292,9 @@
             this.groupBox3.BackColor = System.Drawing.Color.Crimson;
             this.groupBox3.Controls.Add(this.input_textBox);
             this.groupBox3.Controls.Add(this.input_messagelabel);
-            this.groupBox3.Location = new System.Drawing.Point(0, 16);
+            this.groupBox3.Location = new System.Drawing.Point(0, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(504, 155);
+            this.groupBox3.Size = new System.Drawing.Size(504, 159);
             this.groupBox3.TabIndex = 18;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = " (Use only characters \"a - z\")";
@@ -290,12 +302,13 @@
             // selectalgorithmgroupBox
             // 
             this.selectalgorithmgroupBox.BackColor = System.Drawing.Color.Crimson;
+            this.selectalgorithmgroupBox.Controls.Add(this.buttonlogout);
             this.selectalgorithmgroupBox.Controls.Add(this.RSAButton);
             this.selectalgorithmgroupBox.Controls.Add(this.Vigenere_Button);
             this.selectalgorithmgroupBox.ForeColor = System.Drawing.Color.GreenYellow;
-            this.selectalgorithmgroupBox.Location = new System.Drawing.Point(0, 177);
+            this.selectalgorithmgroupBox.Location = new System.Drawing.Point(0, 171);
             this.selectalgorithmgroupBox.Name = "selectalgorithmgroupBox";
-            this.selectalgorithmgroupBox.Size = new System.Drawing.Size(504, 91);
+            this.selectalgorithmgroupBox.Size = new System.Drawing.Size(504, 104);
             this.selectalgorithmgroupBox.TabIndex = 19;
             this.selectalgorithmgroupBox.TabStop = false;
             this.selectalgorithmgroupBox.Text = "Choose Cryptography Algorithm for Chat";
@@ -323,7 +336,7 @@
             this.encryptdecryptsendgroupBox.Controls.Add(this.encrypt_label);
             this.encryptdecryptsendgroupBox.Location = new System.Drawing.Point(0, 274);
             this.encryptdecryptsendgroupBox.Name = "encryptdecryptsendgroupBox";
-            this.encryptdecryptsendgroupBox.Size = new System.Drawing.Size(244, 195);
+            this.encryptdecryptsendgroupBox.Size = new System.Drawing.Size(244, 208);
             this.encryptdecryptsendgroupBox.TabIndex = 22;
             this.encryptdecryptsendgroupBox.TabStop = false;
             this.encryptdecryptsendgroupBox.Text = "Vigenere (Encrypt --- Decrypt ---- Send)";
@@ -339,7 +352,7 @@
             this.RSAgroupBox.Controls.Add(this.EncryptRSAtextBox);
             this.RSAgroupBox.Location = new System.Drawing.Point(244, 274);
             this.RSAgroupBox.Name = "RSAgroupBox";
-            this.RSAgroupBox.Size = new System.Drawing.Size(260, 195);
+            this.RSAgroupBox.Size = new System.Drawing.Size(260, 208);
             this.RSAgroupBox.TabIndex = 23;
             this.RSAgroupBox.TabStop = false;
             this.RSAgroupBox.Text = "RSA(Encrypt --- Decrypt ---- Send)";
@@ -419,46 +432,61 @@
             this.Connect_panel.Controls.Add(this.groupBox2);
             this.Connect_panel.Controls.Add(this.pictureBox2);
             this.Connect_panel.ForeColor = System.Drawing.Color.Salmon;
-            this.Connect_panel.Location = new System.Drawing.Point(0, 0);
+            this.Connect_panel.Location = new System.Drawing.Point(0, -2);
             this.Connect_panel.Name = "Connect_panel";
-            this.Connect_panel.Size = new System.Drawing.Size(1070, 921);
+            this.Connect_panel.Size = new System.Drawing.Size(943, 5361);
             this.Connect_panel.TabIndex = 3;
             this.Connect_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.Connect_panel_Paint);
             // 
             // Login_panel
             // 
+            this.Login_panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Login_panel.AutoSize = true;
             this.Login_panel.BackColor = System.Drawing.SystemColors.ControlText;
             this.Login_panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Login_panel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Login_panel.Controls.Add(this.pictureBox3);
             this.Login_panel.Controls.Add(this.pictureBox1);
             this.Login_panel.Controls.Add(this.logingroupBox);
             this.Login_panel.Location = new System.Drawing.Point(0, 0);
             this.Login_panel.Name = "Login_panel";
-            this.Login_panel.Size = new System.Drawing.Size(839, 485);
+            this.Login_panel.Size = new System.Drawing.Size(839, 4874);
             this.Login_panel.TabIndex = 25;
             this.Login_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.Login_panel_Paint);
             // 
             // logingroupBox
             // 
             this.logingroupBox.BackColor = System.Drawing.Color.Black;
+            this.logingroupBox.Controls.Add(this.buttoncancel);
+            this.logingroupBox.Controls.Add(this.buttonfour);
+            this.logingroupBox.Controls.Add(this.buttonthree);
+            this.logingroupBox.Controls.Add(this.buttonnine);
+            this.logingroupBox.Controls.Add(this.buttonzero);
+            this.logingroupBox.Controls.Add(this.buttoneight);
+            this.logingroupBox.Controls.Add(this.twobutton);
+            this.logingroupBox.Controls.Add(this.buttonseven);
+            this.logingroupBox.Controls.Add(this.buttonsix);
+            this.logingroupBox.Controls.Add(this.buttonfive);
+            this.logingroupBox.Controls.Add(this.buttonone);
             this.logingroupBox.Controls.Add(this.password_label);
-            this.logingroupBox.Controls.Add(this.user_textBox);
-            this.logingroupBox.Controls.Add(this.label);
             this.logingroupBox.Controls.Add(this.pass_textBox);
             this.logingroupBox.Controls.Add(this.Loginbutton);
-            this.logingroupBox.ForeColor = System.Drawing.Color.IndianRed;
-            this.logingroupBox.Location = new System.Drawing.Point(151, 166);
+            this.logingroupBox.ForeColor = System.Drawing.Color.Cyan;
+            this.logingroupBox.Location = new System.Drawing.Point(151, 125);
             this.logingroupBox.Name = "logingroupBox";
-            this.logingroupBox.Size = new System.Drawing.Size(508, 224);
+            this.logingroupBox.Size = new System.Drawing.Size(554, 336);
             this.logingroupBox.TabIndex = 0;
             this.logingroupBox.TabStop = false;
-            this.logingroupBox.Text = "Enter user-name and password to login into chat-server";
+            this.logingroupBox.Text = "Enter password to login into chat-server";
+            this.logingroupBox.Enter += new System.EventHandler(this.logingroupBox_Enter);
             // 
             // password_label
             // 
             this.password_label.AutoSize = true;
-            this.password_label.Location = new System.Drawing.Point(26, 119);
+            this.password_label.ForeColor = System.Drawing.Color.IndianRed;
+            this.password_label.Location = new System.Drawing.Point(22, 45);
             this.password_label.Name = "password_label";
             this.password_label.Size = new System.Drawing.Size(135, 13);
             this.password_label.TabIndex = 4;
@@ -466,50 +494,175 @@
             // 
             // pass_textBox
             // 
-            this.pass_textBox.Location = new System.Drawing.Point(191, 112);
+            this.pass_textBox.ForeColor = System.Drawing.Color.Crimson;
+            this.pass_textBox.Location = new System.Drawing.Point(163, 35);
             this.pass_textBox.Multiline = true;
             this.pass_textBox.Name = "pass_textBox";
             this.pass_textBox.PasswordChar = '*';
             this.pass_textBox.Size = new System.Drawing.Size(297, 37);
             this.pass_textBox.TabIndex = 3;
             // 
-            // user_textBox
-            // 
-            this.user_textBox.BackColor = System.Drawing.Color.White;
-            this.user_textBox.Location = new System.Drawing.Point(189, 53);
-            this.user_textBox.Multiline = true;
-            this.user_textBox.Name = "user_textBox";
-            this.user_textBox.Size = new System.Drawing.Size(299, 40);
-            this.user_textBox.TabIndex = 2;
-            // 
-            // label
-            // 
-            this.label.AutoSize = true;
-            this.label.Location = new System.Drawing.Point(26, 56);
-            this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(80, 13);
-            this.label.TabIndex = 1;
-            this.label.Text = "USER NAME";
-            // 
             // Loginbutton
             // 
-            this.Loginbutton.BackColor = System.Drawing.Color.Maroon;
+            this.Loginbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Loginbutton.ForeColor = System.Drawing.Color.Yellow;
-            this.Loginbutton.Location = new System.Drawing.Point(381, 159);
+            this.Loginbutton.Location = new System.Drawing.Point(386, 262);
             this.Loginbutton.Name = "Loginbutton";
-            this.Loginbutton.Size = new System.Drawing.Size(107, 38);
+            this.Loginbutton.Size = new System.Drawing.Size(80, 38);
             this.Loginbutton.TabIndex = 0;
             this.Loginbutton.Text = "Login";
             this.Loginbutton.UseVisualStyleBackColor = false;
             this.Loginbutton.Click += new System.EventHandler(this.button1_Click);
             // 
+            // buttonone
+            // 
+            this.buttonone.BackColor = System.Drawing.Color.Crimson;
+            this.buttonone.ForeColor = System.Drawing.Color.Yellow;
+            this.buttonone.Location = new System.Drawing.Point(163, 85);
+            this.buttonone.Name = "buttonone";
+            this.buttonone.Size = new System.Drawing.Size(79, 38);
+            this.buttonone.TabIndex = 5;
+            this.buttonone.Text = "1";
+            this.buttonone.UseVisualStyleBackColor = false;
+            this.buttonone.Click += new System.EventHandler(this.buttonone_Click);
+            // 
+            // buttonfive
+            // 
+            this.buttonfive.BackColor = System.Drawing.Color.Crimson;
+            this.buttonfive.ForeColor = System.Drawing.Color.Yellow;
+            this.buttonfive.Location = new System.Drawing.Point(280, 143);
+            this.buttonfive.Name = "buttonfive";
+            this.buttonfive.Size = new System.Drawing.Size(80, 38);
+            this.buttonfive.TabIndex = 5;
+            this.buttonfive.Text = "5";
+            this.buttonfive.UseVisualStyleBackColor = false;
+            this.buttonfive.Click += new System.EventHandler(this.buttonfive_Click);
+            // 
+            // buttonsix
+            // 
+            this.buttonsix.BackColor = System.Drawing.Color.Teal;
+            this.buttonsix.ForeColor = System.Drawing.Color.Yellow;
+            this.buttonsix.Location = new System.Drawing.Point(386, 143);
+            this.buttonsix.Name = "buttonsix";
+            this.buttonsix.Size = new System.Drawing.Size(74, 38);
+            this.buttonsix.TabIndex = 7;
+            this.buttonsix.Text = "6";
+            this.buttonsix.UseVisualStyleBackColor = false;
+            this.buttonsix.Click += new System.EventHandler(this.buttonsix_Click);
+            // 
+            // buttonseven
+            // 
+            this.buttonseven.BackColor = System.Drawing.Color.Crimson;
+            this.buttonseven.ForeColor = System.Drawing.Color.Yellow;
+            this.buttonseven.Location = new System.Drawing.Point(163, 203);
+            this.buttonseven.Name = "buttonseven";
+            this.buttonseven.Size = new System.Drawing.Size(79, 38);
+            this.buttonseven.TabIndex = 8;
+            this.buttonseven.Text = "7";
+            this.buttonseven.UseVisualStyleBackColor = false;
+            this.buttonseven.Click += new System.EventHandler(this.buttonseven_Click);
+            // 
+            // twobutton
+            // 
+            this.twobutton.BackColor = System.Drawing.Color.DarkCyan;
+            this.twobutton.ForeColor = System.Drawing.Color.Yellow;
+            this.twobutton.Location = new System.Drawing.Point(280, 88);
+            this.twobutton.Name = "twobutton";
+            this.twobutton.Size = new System.Drawing.Size(79, 38);
+            this.twobutton.TabIndex = 9;
+            this.twobutton.Text = "2";
+            this.twobutton.UseVisualStyleBackColor = false;
+            this.twobutton.Click += new System.EventHandler(this.twobutton_Click);
+            // 
+            // buttoneight
+            // 
+            this.buttoneight.BackColor = System.Drawing.Color.Teal;
+            this.buttoneight.ForeColor = System.Drawing.Color.Yellow;
+            this.buttoneight.Location = new System.Drawing.Point(280, 203);
+            this.buttoneight.Name = "buttoneight";
+            this.buttoneight.Size = new System.Drawing.Size(79, 38);
+            this.buttoneight.TabIndex = 10;
+            this.buttoneight.Text = "8";
+            this.buttoneight.UseVisualStyleBackColor = false;
+            this.buttoneight.Click += new System.EventHandler(this.buttoneight_Click);
+            // 
+            // buttonzero
+            // 
+            this.buttonzero.BackColor = System.Drawing.Color.Crimson;
+            this.buttonzero.ForeColor = System.Drawing.Color.Yellow;
+            this.buttonzero.Location = new System.Drawing.Point(281, 262);
+            this.buttonzero.Name = "buttonzero";
+            this.buttonzero.Size = new System.Drawing.Size(79, 38);
+            this.buttonzero.TabIndex = 11;
+            this.buttonzero.Text = "0";
+            this.buttonzero.UseVisualStyleBackColor = false;
+            this.buttonzero.Click += new System.EventHandler(this.buttonzero_Click);
+            // 
+            // buttonnine
+            // 
+            this.buttonnine.BackColor = System.Drawing.Color.Crimson;
+            this.buttonnine.ForeColor = System.Drawing.Color.Yellow;
+            this.buttonnine.Location = new System.Drawing.Point(386, 203);
+            this.buttonnine.Name = "buttonnine";
+            this.buttonnine.Size = new System.Drawing.Size(74, 38);
+            this.buttonnine.TabIndex = 12;
+            this.buttonnine.Text = "9";
+            this.buttonnine.UseVisualStyleBackColor = false;
+            this.buttonnine.Click += new System.EventHandler(this.buttonnine_Click);
+            // 
+            // buttonthree
+            // 
+            this.buttonthree.BackColor = System.Drawing.Color.Crimson;
+            this.buttonthree.ForeColor = System.Drawing.Color.Yellow;
+            this.buttonthree.Location = new System.Drawing.Point(386, 88);
+            this.buttonthree.Name = "buttonthree";
+            this.buttonthree.Size = new System.Drawing.Size(74, 38);
+            this.buttonthree.TabIndex = 13;
+            this.buttonthree.Text = "3";
+            this.buttonthree.UseVisualStyleBackColor = false;
+            this.buttonthree.Click += new System.EventHandler(this.buttonthree_Click);
+            // 
+            // buttonfour
+            // 
+            this.buttonfour.BackColor = System.Drawing.Color.Teal;
+            this.buttonfour.ForeColor = System.Drawing.Color.Yellow;
+            this.buttonfour.Location = new System.Drawing.Point(163, 143);
+            this.buttonfour.Name = "buttonfour";
+            this.buttonfour.Size = new System.Drawing.Size(79, 38);
+            this.buttonfour.TabIndex = 14;
+            this.buttonfour.Text = "4";
+            this.buttonfour.UseVisualStyleBackColor = false;
+            this.buttonfour.Click += new System.EventHandler(this.buttonfour_Click);
+            // 
+            // buttoncancel
+            // 
+            this.buttoncancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttoncancel.ForeColor = System.Drawing.Color.Yellow;
+            this.buttoncancel.Location = new System.Drawing.Point(163, 262);
+            this.buttoncancel.Name = "buttoncancel";
+            this.buttoncancel.Size = new System.Drawing.Size(80, 38);
+            this.buttoncancel.TabIndex = 15;
+            this.buttoncancel.Text = "X";
+            this.buttoncancel.UseVisualStyleBackColor = false;
+            this.buttoncancel.Click += new System.EventHandler(this.buttoncancel_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = global::Cryptography_Algorithm_Project.Properties.Resources.images__2_;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox3.Location = new System.Drawing.Point(211, 3);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(129, 116);
+            this.pictureBox3.TabIndex = 2;
+            this.pictureBox3.TabStop = false;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::Cryptography_Algorithm_Project.Properties.Resources.lo;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Location = new System.Drawing.Point(246, 22);
+            this.pictureBox1.Location = new System.Drawing.Point(336, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(345, 116);
+            this.pictureBox1.Size = new System.Drawing.Size(333, 116);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
@@ -522,6 +675,17 @@
             this.pictureBox2.Size = new System.Drawing.Size(345, 156);
             this.pictureBox2.TabIndex = 26;
             this.pictureBox2.TabStop = false;
+            // 
+            // buttonlogout
+            // 
+            this.buttonlogout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonlogout.Location = new System.Drawing.Point(406, 58);
+            this.buttonlogout.Name = "buttonlogout";
+            this.buttonlogout.Size = new System.Drawing.Size(78, 27);
+            this.buttonlogout.TabIndex = 17;
+            this.buttonlogout.Text = "Logout";
+            this.buttonlogout.UseVisualStyleBackColor = true;
+            this.buttonlogout.Click += new System.EventHandler(this.buttonlogout_Click);
             // 
             // Form1
             // 
@@ -559,6 +723,7 @@
             this.Login_panel.ResumeLayout(false);
             this.logingroupBox.ResumeLayout(false);
             this.logingroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -603,12 +768,23 @@
         private System.Windows.Forms.GroupBox logingroupBox;
         private System.Windows.Forms.Label password_label;
         private System.Windows.Forms.TextBox pass_textBox;
-        private System.Windows.Forms.TextBox user_textBox;
-        private System.Windows.Forms.Label label;
         private System.Windows.Forms.Button Loginbutton;
         private System.Windows.Forms.Panel Connect_panel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button buttoncancel;
+        private System.Windows.Forms.Button buttonfour;
+        private System.Windows.Forms.Button buttonthree;
+        private System.Windows.Forms.Button buttonnine;
+        private System.Windows.Forms.Button buttonzero;
+        private System.Windows.Forms.Button buttoneight;
+        private System.Windows.Forms.Button twobutton;
+        private System.Windows.Forms.Button buttonseven;
+        private System.Windows.Forms.Button buttonsix;
+        private System.Windows.Forms.Button buttonfive;
+        private System.Windows.Forms.Button buttonone;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button buttonlogout;
     }
 }
 
