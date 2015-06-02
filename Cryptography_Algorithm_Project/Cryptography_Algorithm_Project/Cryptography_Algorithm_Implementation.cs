@@ -103,19 +103,44 @@ namespace Cryptography_Algorithm_Project
 
         private void buttonConnect_Click(object sender, EventArgs e)
         {
-            //Binding Socket
-            epLocal = new IPEndPoint(IPAddress.Parse(textLocalIp.Text), Convert.ToInt32(textLocalPort.Text));
-            sck.Bind(epLocal);
-            //Connecting to Remote IP
-            epRemote = new IPEndPoint(IPAddress.Parse( textRemoteIP .Text), Convert.ToInt32(textRemotePort.Text));
-            sck.Connect(epRemote);
-            MessageBox.Show("Connected succssfully. Click ok to proceed further.");
-            Connect_panel.Hide();
-            //Listening the Specific Port
-            buffer = new byte[1500];
-       
-                sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
+            try
+            {
+                if (textLocalPort.Text != "" && textRemotePort.Text != "")
+                {
+                    if (textLocalPort.Text != textRemotePort.Text)
+                    {
+                        //Binding Socket
+                        epLocal = new IPEndPoint(IPAddress.Parse(textLocalIp.Text), Convert.ToInt32(textLocalPort.Text));
+                        sck.Bind(epLocal);
+                        //Connecting to Remote IP
+                        epRemote = new IPEndPoint(IPAddress.Parse(textRemoteIP.Text), Convert.ToInt32(textRemotePort.Text));
+                        sck.Connect(epRemote);
+
+                        MessageBox.Show("Connected succssfully. Click ok to proceed further.");
+                        Connect_panel.Hide();
+                        //Listening the Specific Port
+                        buffer = new byte[1500];
+                        sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
+                    }
+                    else
+                    {
+                        MessageBox.Show("You can't enter same ports. Try again. ");
+                        textLocalPort.Text = "";
+                        textRemotePort.Text = "";
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ports are empty.Enter different ports.");
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Connection Failed. Check your connection. ");
            
+                throw;
+            }
+          
         }
         private void MessageCallBack(IAsyncResult aResult)
         {
@@ -131,8 +156,7 @@ namespace Cryptography_Algorithm_Project
                 //Adding message to list-of-messages
                 if (receivedmessage!= null)
                 {
-
-                    speech.Rate = 1;
+                     speech.Rate = 1;
                     speech.Volume = 100;
                     CHAT_HISTORY.Items.Add("Friend: " + receivedmessage);
                     speech.Speak(receivedmessage);
@@ -189,7 +213,7 @@ namespace Cryptography_Algorithm_Project
         {
             RSASendbutton.Visible = true;
         }
-        //..............   RSA Cipher Functions ....................
+        // :::::::::::::::::::::: RSA Cipher Functions :::::::::::::::::::::::::::::::::::::: 
         static public byte[] Encryption(byte[] Data, RSAParameters RSAKey, bool DoOAEPPadding)
         {
             try
@@ -225,7 +249,7 @@ namespace Cryptography_Algorithm_Project
                 return null;
             }
         }
-        //....................................................................
+        //:::::::::::::::::: RSA Encryption :::::::::::::::::::::::::
 
         private void RSAEncryptbutton_Click(object sender, EventArgs e)
         {
@@ -239,12 +263,12 @@ namespace Cryptography_Algorithm_Project
         {
 
         }
-
+        //:::::::::::::::::: RSA Decryption :::::::::::::::::::::::::
         private void RSADecryptbutton_Click(object sender, EventArgs e)
         {
             DecryptRSAtextBox.Visible = true;
-            byte[] decryptedtex = Decryption(encryptedtext, RSA.ExportParameters(true), false);
-            DecryptRSAtextBox.Text = ByteConverter.GetString(decryptedtex);
+            byte[] decryptedtext = Decryption(encryptedtext, RSA.ExportParameters(true), false);
+            DecryptRSAtextBox.Text = ByteConverter.GetString(decryptedtext);
         }
 
         private void DecryptRSAtextBox_TextChanged(object sender, EventArgs e)
@@ -262,7 +286,6 @@ namespace Cryptography_Algorithm_Project
             //Sending Message
             sck.Send(sendingmessage);
             //Adding to list-box
-         
             CHAT_HISTORY.Items.Add("Me : " + input_textBox.Text);
             input_textBox.Text = "";
             EncryptRSAtextBox.Text = "";
@@ -277,17 +300,16 @@ namespace Cryptography_Algorithm_Project
         private void button1_Click(object sender, EventArgs e)
         {
            string password = "0340";
+         
             if (password == pass_textBox.Text)
             {
                 MessageBox.Show("PIN Number correct. Click Ok to proceed.");
                 Login_panel .Hide();
                 Connect_panel.Show();
-
-
             }
             else
             {
-                MessageBox.Show("User Name and Password are incorrect.");
+                MessageBox.Show("Invalid Pin No or Password.");
                
                 pass_textBox.Text = "";
             }
@@ -372,6 +394,11 @@ namespace Cryptography_Algorithm_Project
         {
             Application.Exit();
             
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
         }
         
       

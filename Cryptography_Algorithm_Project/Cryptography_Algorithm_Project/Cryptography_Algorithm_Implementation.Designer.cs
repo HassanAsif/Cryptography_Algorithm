@@ -51,6 +51,7 @@
             this.buttonConnect = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.selectalgorithmgroupBox = new System.Windows.Forms.GroupBox();
+            this.buttonlogout = new System.Windows.Forms.Button();
             this.RSAButton = new System.Windows.Forms.RadioButton();
             this.encryptdecryptsendgroupBox = new System.Windows.Forms.GroupBox();
             this.RSAgroupBox = new System.Windows.Forms.GroupBox();
@@ -62,25 +63,25 @@
             this.Create_label = new System.Windows.Forms.Label();
             this.Connect_panel = new System.Windows.Forms.Panel();
             this.Login_panel = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.logingroupBox = new System.Windows.Forms.GroupBox();
+            this.buttoncancel = new System.Windows.Forms.Button();
+            this.buttonfour = new System.Windows.Forms.Button();
+            this.buttonthree = new System.Windows.Forms.Button();
+            this.buttonnine = new System.Windows.Forms.Button();
+            this.buttonzero = new System.Windows.Forms.Button();
+            this.buttoneight = new System.Windows.Forms.Button();
+            this.twobutton = new System.Windows.Forms.Button();
+            this.buttonseven = new System.Windows.Forms.Button();
+            this.buttonsix = new System.Windows.Forms.Button();
+            this.buttonfive = new System.Windows.Forms.Button();
+            this.buttonone = new System.Windows.Forms.Button();
             this.password_label = new System.Windows.Forms.Label();
             this.pass_textBox = new System.Windows.Forms.TextBox();
             this.Loginbutton = new System.Windows.Forms.Button();
-            this.buttonone = new System.Windows.Forms.Button();
-            this.buttonfive = new System.Windows.Forms.Button();
-            this.buttonsix = new System.Windows.Forms.Button();
-            this.buttonseven = new System.Windows.Forms.Button();
-            this.twobutton = new System.Windows.Forms.Button();
-            this.buttoneight = new System.Windows.Forms.Button();
-            this.buttonzero = new System.Windows.Forms.Button();
-            this.buttonnine = new System.Windows.Forms.Button();
-            this.buttonthree = new System.Windows.Forms.Button();
-            this.buttonfour = new System.Windows.Forms.Button();
-            this.buttoncancel = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.buttonlogout = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -89,9 +90,9 @@
             this.RSAgroupBox.SuspendLayout();
             this.Connect_panel.SuspendLayout();
             this.Login_panel.SuspendLayout();
-            this.logingroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.logingroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -314,6 +315,17 @@
             this.selectalgorithmgroupBox.Text = "Choose Cryptography Algorithm for Chat";
             this.selectalgorithmgroupBox.Enter += new System.EventHandler(this.groupBox4_Enter);
             // 
+            // buttonlogout
+            // 
+            this.buttonlogout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonlogout.Location = new System.Drawing.Point(406, 58);
+            this.buttonlogout.Name = "buttonlogout";
+            this.buttonlogout.Size = new System.Drawing.Size(78, 27);
+            this.buttonlogout.TabIndex = 17;
+            this.buttonlogout.Text = "Logout";
+            this.buttonlogout.UseVisualStyleBackColor = true;
+            this.buttonlogout.Click += new System.EventHandler(this.buttonlogout_Click);
+            // 
             // RSAButton
             // 
             this.RSAButton.AutoSize = true;
@@ -456,9 +468,30 @@
             this.Login_panel.TabIndex = 25;
             this.Login_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.Login_panel_Paint);
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = global::Cryptography_Algorithm_Project.Properties.Resources.images__2_;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox3.Location = new System.Drawing.Point(211, 3);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(129, 116);
+            this.pictureBox3.TabIndex = 2;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::Cryptography_Algorithm_Project.Properties.Resources.lo;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Location = new System.Drawing.Point(336, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(333, 116);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // logingroupBox
             // 
             this.logingroupBox.BackColor = System.Drawing.Color.Black;
+            this.logingroupBox.Controls.Add(this.label1);
             this.logingroupBox.Controls.Add(this.buttoncancel);
             this.logingroupBox.Controls.Add(this.buttonfour);
             this.logingroupBox.Controls.Add(this.buttonthree);
@@ -482,11 +515,143 @@
             this.logingroupBox.Text = "Enter password to login into chat-server";
             this.logingroupBox.Enter += new System.EventHandler(this.logingroupBox_Enter);
             // 
+            // buttoncancel
+            // 
+            this.buttoncancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttoncancel.ForeColor = System.Drawing.Color.Yellow;
+            this.buttoncancel.Location = new System.Drawing.Point(163, 262);
+            this.buttoncancel.Name = "buttoncancel";
+            this.buttoncancel.Size = new System.Drawing.Size(80, 38);
+            this.buttoncancel.TabIndex = 15;
+            this.buttoncancel.Text = "X";
+            this.buttoncancel.UseVisualStyleBackColor = false;
+            this.buttoncancel.Click += new System.EventHandler(this.buttoncancel_Click);
+            // 
+            // buttonfour
+            // 
+            this.buttonfour.BackColor = System.Drawing.Color.Teal;
+            this.buttonfour.ForeColor = System.Drawing.Color.Yellow;
+            this.buttonfour.Location = new System.Drawing.Point(163, 143);
+            this.buttonfour.Name = "buttonfour";
+            this.buttonfour.Size = new System.Drawing.Size(79, 38);
+            this.buttonfour.TabIndex = 14;
+            this.buttonfour.Text = "4";
+            this.buttonfour.UseVisualStyleBackColor = false;
+            this.buttonfour.Click += new System.EventHandler(this.buttonfour_Click);
+            // 
+            // buttonthree
+            // 
+            this.buttonthree.BackColor = System.Drawing.Color.Crimson;
+            this.buttonthree.ForeColor = System.Drawing.Color.Yellow;
+            this.buttonthree.Location = new System.Drawing.Point(386, 88);
+            this.buttonthree.Name = "buttonthree";
+            this.buttonthree.Size = new System.Drawing.Size(74, 38);
+            this.buttonthree.TabIndex = 13;
+            this.buttonthree.Text = "3";
+            this.buttonthree.UseVisualStyleBackColor = false;
+            this.buttonthree.Click += new System.EventHandler(this.buttonthree_Click);
+            // 
+            // buttonnine
+            // 
+            this.buttonnine.BackColor = System.Drawing.Color.Crimson;
+            this.buttonnine.ForeColor = System.Drawing.Color.Yellow;
+            this.buttonnine.Location = new System.Drawing.Point(386, 203);
+            this.buttonnine.Name = "buttonnine";
+            this.buttonnine.Size = new System.Drawing.Size(74, 38);
+            this.buttonnine.TabIndex = 12;
+            this.buttonnine.Text = "9";
+            this.buttonnine.UseVisualStyleBackColor = false;
+            this.buttonnine.Click += new System.EventHandler(this.buttonnine_Click);
+            // 
+            // buttonzero
+            // 
+            this.buttonzero.BackColor = System.Drawing.Color.Crimson;
+            this.buttonzero.ForeColor = System.Drawing.Color.Yellow;
+            this.buttonzero.Location = new System.Drawing.Point(281, 262);
+            this.buttonzero.Name = "buttonzero";
+            this.buttonzero.Size = new System.Drawing.Size(79, 38);
+            this.buttonzero.TabIndex = 11;
+            this.buttonzero.Text = "0";
+            this.buttonzero.UseVisualStyleBackColor = false;
+            this.buttonzero.Click += new System.EventHandler(this.buttonzero_Click);
+            // 
+            // buttoneight
+            // 
+            this.buttoneight.BackColor = System.Drawing.Color.Teal;
+            this.buttoneight.ForeColor = System.Drawing.Color.Yellow;
+            this.buttoneight.Location = new System.Drawing.Point(280, 203);
+            this.buttoneight.Name = "buttoneight";
+            this.buttoneight.Size = new System.Drawing.Size(79, 38);
+            this.buttoneight.TabIndex = 10;
+            this.buttoneight.Text = "8";
+            this.buttoneight.UseVisualStyleBackColor = false;
+            this.buttoneight.Click += new System.EventHandler(this.buttoneight_Click);
+            // 
+            // twobutton
+            // 
+            this.twobutton.BackColor = System.Drawing.Color.DarkCyan;
+            this.twobutton.ForeColor = System.Drawing.Color.Yellow;
+            this.twobutton.Location = new System.Drawing.Point(280, 88);
+            this.twobutton.Name = "twobutton";
+            this.twobutton.Size = new System.Drawing.Size(79, 38);
+            this.twobutton.TabIndex = 9;
+            this.twobutton.Text = "2";
+            this.twobutton.UseVisualStyleBackColor = false;
+            this.twobutton.Click += new System.EventHandler(this.twobutton_Click);
+            // 
+            // buttonseven
+            // 
+            this.buttonseven.BackColor = System.Drawing.Color.Crimson;
+            this.buttonseven.ForeColor = System.Drawing.Color.Yellow;
+            this.buttonseven.Location = new System.Drawing.Point(163, 203);
+            this.buttonseven.Name = "buttonseven";
+            this.buttonseven.Size = new System.Drawing.Size(79, 38);
+            this.buttonseven.TabIndex = 8;
+            this.buttonseven.Text = "7";
+            this.buttonseven.UseVisualStyleBackColor = false;
+            this.buttonseven.Click += new System.EventHandler(this.buttonseven_Click);
+            // 
+            // buttonsix
+            // 
+            this.buttonsix.BackColor = System.Drawing.Color.Teal;
+            this.buttonsix.ForeColor = System.Drawing.Color.Yellow;
+            this.buttonsix.Location = new System.Drawing.Point(386, 143);
+            this.buttonsix.Name = "buttonsix";
+            this.buttonsix.Size = new System.Drawing.Size(74, 38);
+            this.buttonsix.TabIndex = 7;
+            this.buttonsix.Text = "6";
+            this.buttonsix.UseVisualStyleBackColor = false;
+            this.buttonsix.Click += new System.EventHandler(this.buttonsix_Click);
+            // 
+            // buttonfive
+            // 
+            this.buttonfive.BackColor = System.Drawing.Color.Crimson;
+            this.buttonfive.ForeColor = System.Drawing.Color.Yellow;
+            this.buttonfive.Location = new System.Drawing.Point(280, 143);
+            this.buttonfive.Name = "buttonfive";
+            this.buttonfive.Size = new System.Drawing.Size(80, 38);
+            this.buttonfive.TabIndex = 5;
+            this.buttonfive.Text = "5";
+            this.buttonfive.UseVisualStyleBackColor = false;
+            this.buttonfive.Click += new System.EventHandler(this.buttonfive_Click);
+            // 
+            // buttonone
+            // 
+            this.buttonone.BackColor = System.Drawing.Color.Crimson;
+            this.buttonone.ForeColor = System.Drawing.Color.Yellow;
+            this.buttonone.Location = new System.Drawing.Point(163, 85);
+            this.buttonone.Name = "buttonone";
+            this.buttonone.Size = new System.Drawing.Size(79, 38);
+            this.buttonone.TabIndex = 5;
+            this.buttonone.Text = "1";
+            this.buttonone.UseVisualStyleBackColor = false;
+            this.buttonone.Click += new System.EventHandler(this.buttonone_Click);
+            // 
             // password_label
             // 
             this.password_label.AutoSize = true;
-            this.password_label.ForeColor = System.Drawing.Color.IndianRed;
-            this.password_label.Location = new System.Drawing.Point(22, 45);
+            this.password_label.ForeColor = System.Drawing.Color.Violet;
+            this.password_label.Location = new System.Drawing.Point(6, 49);
             this.password_label.Name = "password_label";
             this.password_label.Size = new System.Drawing.Size(135, 13);
             this.password_label.TabIndex = 4;
@@ -495,7 +660,7 @@
             // pass_textBox
             // 
             this.pass_textBox.ForeColor = System.Drawing.Color.Crimson;
-            this.pass_textBox.Location = new System.Drawing.Point(163, 35);
+            this.pass_textBox.Location = new System.Drawing.Point(163, 42);
             this.pass_textBox.Multiline = true;
             this.pass_textBox.Name = "pass_textBox";
             this.pass_textBox.PasswordChar = '*';
@@ -514,158 +679,6 @@
             this.Loginbutton.UseVisualStyleBackColor = false;
             this.Loginbutton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // buttonone
-            // 
-            this.buttonone.BackColor = System.Drawing.Color.Crimson;
-            this.buttonone.ForeColor = System.Drawing.Color.Yellow;
-            this.buttonone.Location = new System.Drawing.Point(163, 85);
-            this.buttonone.Name = "buttonone";
-            this.buttonone.Size = new System.Drawing.Size(79, 38);
-            this.buttonone.TabIndex = 5;
-            this.buttonone.Text = "1";
-            this.buttonone.UseVisualStyleBackColor = false;
-            this.buttonone.Click += new System.EventHandler(this.buttonone_Click);
-            // 
-            // buttonfive
-            // 
-            this.buttonfive.BackColor = System.Drawing.Color.Crimson;
-            this.buttonfive.ForeColor = System.Drawing.Color.Yellow;
-            this.buttonfive.Location = new System.Drawing.Point(280, 143);
-            this.buttonfive.Name = "buttonfive";
-            this.buttonfive.Size = new System.Drawing.Size(80, 38);
-            this.buttonfive.TabIndex = 5;
-            this.buttonfive.Text = "5";
-            this.buttonfive.UseVisualStyleBackColor = false;
-            this.buttonfive.Click += new System.EventHandler(this.buttonfive_Click);
-            // 
-            // buttonsix
-            // 
-            this.buttonsix.BackColor = System.Drawing.Color.Teal;
-            this.buttonsix.ForeColor = System.Drawing.Color.Yellow;
-            this.buttonsix.Location = new System.Drawing.Point(386, 143);
-            this.buttonsix.Name = "buttonsix";
-            this.buttonsix.Size = new System.Drawing.Size(74, 38);
-            this.buttonsix.TabIndex = 7;
-            this.buttonsix.Text = "6";
-            this.buttonsix.UseVisualStyleBackColor = false;
-            this.buttonsix.Click += new System.EventHandler(this.buttonsix_Click);
-            // 
-            // buttonseven
-            // 
-            this.buttonseven.BackColor = System.Drawing.Color.Crimson;
-            this.buttonseven.ForeColor = System.Drawing.Color.Yellow;
-            this.buttonseven.Location = new System.Drawing.Point(163, 203);
-            this.buttonseven.Name = "buttonseven";
-            this.buttonseven.Size = new System.Drawing.Size(79, 38);
-            this.buttonseven.TabIndex = 8;
-            this.buttonseven.Text = "7";
-            this.buttonseven.UseVisualStyleBackColor = false;
-            this.buttonseven.Click += new System.EventHandler(this.buttonseven_Click);
-            // 
-            // twobutton
-            // 
-            this.twobutton.BackColor = System.Drawing.Color.DarkCyan;
-            this.twobutton.ForeColor = System.Drawing.Color.Yellow;
-            this.twobutton.Location = new System.Drawing.Point(280, 88);
-            this.twobutton.Name = "twobutton";
-            this.twobutton.Size = new System.Drawing.Size(79, 38);
-            this.twobutton.TabIndex = 9;
-            this.twobutton.Text = "2";
-            this.twobutton.UseVisualStyleBackColor = false;
-            this.twobutton.Click += new System.EventHandler(this.twobutton_Click);
-            // 
-            // buttoneight
-            // 
-            this.buttoneight.BackColor = System.Drawing.Color.Teal;
-            this.buttoneight.ForeColor = System.Drawing.Color.Yellow;
-            this.buttoneight.Location = new System.Drawing.Point(280, 203);
-            this.buttoneight.Name = "buttoneight";
-            this.buttoneight.Size = new System.Drawing.Size(79, 38);
-            this.buttoneight.TabIndex = 10;
-            this.buttoneight.Text = "8";
-            this.buttoneight.UseVisualStyleBackColor = false;
-            this.buttoneight.Click += new System.EventHandler(this.buttoneight_Click);
-            // 
-            // buttonzero
-            // 
-            this.buttonzero.BackColor = System.Drawing.Color.Crimson;
-            this.buttonzero.ForeColor = System.Drawing.Color.Yellow;
-            this.buttonzero.Location = new System.Drawing.Point(281, 262);
-            this.buttonzero.Name = "buttonzero";
-            this.buttonzero.Size = new System.Drawing.Size(79, 38);
-            this.buttonzero.TabIndex = 11;
-            this.buttonzero.Text = "0";
-            this.buttonzero.UseVisualStyleBackColor = false;
-            this.buttonzero.Click += new System.EventHandler(this.buttonzero_Click);
-            // 
-            // buttonnine
-            // 
-            this.buttonnine.BackColor = System.Drawing.Color.Crimson;
-            this.buttonnine.ForeColor = System.Drawing.Color.Yellow;
-            this.buttonnine.Location = new System.Drawing.Point(386, 203);
-            this.buttonnine.Name = "buttonnine";
-            this.buttonnine.Size = new System.Drawing.Size(74, 38);
-            this.buttonnine.TabIndex = 12;
-            this.buttonnine.Text = "9";
-            this.buttonnine.UseVisualStyleBackColor = false;
-            this.buttonnine.Click += new System.EventHandler(this.buttonnine_Click);
-            // 
-            // buttonthree
-            // 
-            this.buttonthree.BackColor = System.Drawing.Color.Crimson;
-            this.buttonthree.ForeColor = System.Drawing.Color.Yellow;
-            this.buttonthree.Location = new System.Drawing.Point(386, 88);
-            this.buttonthree.Name = "buttonthree";
-            this.buttonthree.Size = new System.Drawing.Size(74, 38);
-            this.buttonthree.TabIndex = 13;
-            this.buttonthree.Text = "3";
-            this.buttonthree.UseVisualStyleBackColor = false;
-            this.buttonthree.Click += new System.EventHandler(this.buttonthree_Click);
-            // 
-            // buttonfour
-            // 
-            this.buttonfour.BackColor = System.Drawing.Color.Teal;
-            this.buttonfour.ForeColor = System.Drawing.Color.Yellow;
-            this.buttonfour.Location = new System.Drawing.Point(163, 143);
-            this.buttonfour.Name = "buttonfour";
-            this.buttonfour.Size = new System.Drawing.Size(79, 38);
-            this.buttonfour.TabIndex = 14;
-            this.buttonfour.Text = "4";
-            this.buttonfour.UseVisualStyleBackColor = false;
-            this.buttonfour.Click += new System.EventHandler(this.buttonfour_Click);
-            // 
-            // buttoncancel
-            // 
-            this.buttoncancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttoncancel.ForeColor = System.Drawing.Color.Yellow;
-            this.buttoncancel.Location = new System.Drawing.Point(163, 262);
-            this.buttoncancel.Name = "buttoncancel";
-            this.buttoncancel.Size = new System.Drawing.Size(80, 38);
-            this.buttoncancel.TabIndex = 15;
-            this.buttoncancel.Text = "X";
-            this.buttoncancel.UseVisualStyleBackColor = false;
-            this.buttoncancel.Click += new System.EventHandler(this.buttoncancel_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImage = global::Cryptography_Algorithm_Project.Properties.Resources.images__2_;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Location = new System.Drawing.Point(211, 3);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(129, 116);
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::Cryptography_Algorithm_Project.Properties.Resources.lo;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Location = new System.Drawing.Point(336, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(333, 116);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImage = global::Cryptography_Algorithm_Project.Properties.Resources.download1;
@@ -676,16 +689,16 @@
             this.pictureBox2.TabIndex = 26;
             this.pictureBox2.TabStop = false;
             // 
-            // buttonlogout
+            // label1
             // 
-            this.buttonlogout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonlogout.Location = new System.Drawing.Point(406, 58);
-            this.buttonlogout.Name = "buttonlogout";
-            this.buttonlogout.Size = new System.Drawing.Size(78, 27);
-            this.buttonlogout.TabIndex = 17;
-            this.buttonlogout.Text = "Logout";
-            this.buttonlogout.UseVisualStyleBackColor = true;
-            this.buttonlogout.Click += new System.EventHandler(this.buttonlogout_Click);
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Plum;
+            this.label1.Location = new System.Drawing.Point(6, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(424, 13);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "(PIN NO should be in Numbers 0 to 9). It should be a 4-Digit PIN Number.";
+            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // Form1
             // 
@@ -721,10 +734,10 @@
             this.Connect_panel.ResumeLayout(false);
             this.Connect_panel.PerformLayout();
             this.Login_panel.ResumeLayout(false);
-            this.logingroupBox.ResumeLayout(false);
-            this.logingroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.logingroupBox.ResumeLayout(false);
+            this.logingroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -785,6 +798,7 @@
         private System.Windows.Forms.Button buttonone;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button buttonlogout;
+        private System.Windows.Forms.Label label1;
     }
 }
 
