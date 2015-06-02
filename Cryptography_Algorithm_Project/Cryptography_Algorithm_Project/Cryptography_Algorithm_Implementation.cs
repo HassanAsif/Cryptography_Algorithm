@@ -17,7 +17,7 @@ namespace Cryptography_Algorithm_Project
 {
     public partial class Form1 : Form
     {
-       
+        SpeechSynthesizer speech = new SpeechSynthesizer();
         string input_key1;
         Socket sck;
         //EndPoints
@@ -88,6 +88,8 @@ namespace Cryptography_Algorithm_Project
             else
             {
                 MessageBox.Show("Message Text Box is empty.");
+                speech.Speak("You can't proceed further because message Text Box is empty. Must enter something in the message box to proceed further.");
+                
             }   
           
         }
@@ -115,8 +117,9 @@ namespace Cryptography_Algorithm_Project
                         //Connecting to Remote IP
                         epRemote = new IPEndPoint(IPAddress.Parse(textRemoteIP.Text), Convert.ToInt32(textRemotePort.Text));
                         sck.Connect(epRemote);
-
+                        speech.Speak("Connection established successfully. Click OK button to proceed further.");
                         MessageBox.Show("Connected succssfully. Click ok to proceed further.");
+                       
                         Connect_panel.Hide();
                         //Listening the Specific Port
                         buffer = new byte[1500];
@@ -124,27 +127,32 @@ namespace Cryptography_Algorithm_Project
                     }
                     else
                     {
+                        speech.Speak("You can't enter same ports. Try again. ");
                         MessageBox.Show("You can't enter same ports. Try again. ");
+                 
                         textLocalPort.Text = "";
                         textRemotePort.Text = "";
                     }
                 }
                 else
                 {
+                    speech.Speak("Ports are empty.Enter different ports.");
                     MessageBox.Show("Ports are empty.Enter different ports.");
+                    
                 }
             }
             catch (Exception err)
             {
+                speech.Speak("Ports are empty. Kindly enter different suitable ports to proceed further.");
                 MessageBox.Show("Connection Failed. Check your connection. ");
-           
+                
                 throw;
             }
           
         }
         private void MessageCallBack(IAsyncResult aResult)
         {
-            SpeechSynthesizer speech = new SpeechSynthesizer();
+            
             try
             {
                 
@@ -154,12 +162,18 @@ namespace Cryptography_Algorithm_Project
                 ASCIIEncoding aEncoding = new ASCIIEncoding();
                 string receivedmessage = aEncoding.GetString(receiveddata);
                 //Adding message to list-of-messages
-                if (receivedmessage!= null)
+                if (receivedmessage != null)
                 {
-                     speech.Rate = 1;
+                    speech.Rate = 1;
                     speech.Volume = 100;
                     CHAT_HISTORY.Items.Add("Friend: " + receivedmessage);
                     speech.Speak(receivedmessage);
+                   // MessageBox.Show("Message Received Successfully.");
+                }
+                else
+                {
+                   // CHAT_HISTORY.Items.Add("Freind: Server not responding check your connection.");
+                    speech.Speak("Server not responding check your connection.");
                 }
                 //Again Calling Function "MessageCallback"
                 buffer = new byte[1500];
@@ -168,6 +182,7 @@ namespace Cryptography_Algorithm_Project
             catch (Exception ex)
             {
                 MessageBox.Show(" Error 1: " +ex.ToString());
+                throw;
             }
         }
 
@@ -179,9 +194,18 @@ namespace Cryptography_Algorithm_Project
             sendingmessage = aEncoding.GetBytes(Vigeneredecrypt_textBox.Text);
             //Sending Message
             sck.Send(sendingmessage);
+            if (input_textBox.Text != null)
+            {
             //Adding to list-box
             CHAT_HISTORY.Items.Add("Me :  " + input_textBox.Text);
-            input_textBox.Text = "";
+          
+               // MessageBox.Show("Message sent successfully.");
+                input_textBox.Text = "";
+            }
+            else
+            {
+                //MessageBox.Show("You can't send an empty message. You must write something in the message textbox.");
+            }
         }
 
         private void groupBox4_Enter(object sender, EventArgs e)
@@ -205,7 +229,9 @@ namespace Cryptography_Algorithm_Project
             }
             else
             {
+                speech.Speak("You can't proceed further because message text box is empty. Write something in message box to proceed further.");
                 MessageBox.Show("Message Text Box is empty.");
+               
             }
         }
 
@@ -303,12 +329,16 @@ namespace Cryptography_Algorithm_Project
          
             if (password == pass_textBox.Text)
             {
+                speech.Speak("You successfully login into the chat server. Click OK to proceed further.");
                 MessageBox.Show("PIN Number correct. Click Ok to proceed.");
+                
+                
                 Login_panel .Hide();
                 Connect_panel.Show();
             }
             else
             {
+                speech.Speak("You entered an invalid pin number or password. Kindly try again.");
                 MessageBox.Show("Invalid Pin No or Password.");
                
                 pass_textBox.Text = "";
@@ -322,7 +352,7 @@ namespace Cryptography_Algorithm_Project
 
         private void Create_label_Click(object sender, EventArgs e)
         {
-
+            //speech.Speak("Hello you clicked on me.");
         }
 
         private void Connect_panel_Paint(object sender, PaintEventArgs e)
@@ -387,6 +417,7 @@ namespace Cryptography_Algorithm_Project
 
         private void buttoncancel_Click(object sender, EventArgs e)
         {
+            speech.Speak("Pin Number or Password Box is cleared. Write password again.");
             pass_textBox.Text="";
         }
 
@@ -399,6 +430,33 @@ namespace Cryptography_Algorithm_Project
         private void label1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void Logoutbutton1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Instructions_groupBox_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            speech.Speak("This application is basically built for server client connection. Step1: Enter the port of server and client.Step2: Remember Ports of server and client should not be same.\rBut we can also make an client to client connection by just simply entring the IP of other client and vice versa.");
+            MessageBox.Show(" This application is basically built for server client connection.\rStep1: Enter the port of server and client.\r Step2: Remember Ports of server and client should not be same.\rBut we can also make an client to client connection by just simply entring the IP of other client and vice versa.  ");
+        }
+
+        private void sendmessagehelp_label_Click(object sender, EventArgs e)
+        {
+            speech.Speak("Following things you should keep in mind while sending message.\r First, don't use any symbol or number in your message when you select vigenere algorithm because it ignores the symbols and numbers. Second, After writing message, select algorithm you want to use for security. Third, After selecting algorithm check whether it is doing right encryption or not.  At last, click send button to send the message. Once you click the send button the receiver will receive a text + voice message. ");
+            MessageBox.Show("Following things you should keep in mind while sending message.\r First, don't use any symbol or number in your message when you select vigenere algorithm because it ignores the symbols and numbers.\r Second, After writing message, select algorithm you want to use for security.\r Third, After selecting algorithm check whether it is doing right encryption or not. \r At last, click send button to send the message.\r Once you click the send button the receiver will receive a text + voice message. ");
+        }
+
+        private void InfoVigenere_label_Click(object sender, EventArgs e)
+        {
+            Speech.Speak();
         }
         
       

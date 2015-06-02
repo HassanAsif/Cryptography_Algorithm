@@ -66,6 +66,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.logingroupBox = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.buttoncancel = new System.Windows.Forms.Button();
             this.buttonfour = new System.Windows.Forms.Button();
             this.buttonthree = new System.Windows.Forms.Button();
@@ -80,8 +81,15 @@
             this.password_label = new System.Windows.Forms.Label();
             this.pass_textBox = new System.Windows.Forms.TextBox();
             this.Loginbutton = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.Logoutbutton1 = new System.Windows.Forms.Button();
+            this.Instructions_groupBox = new System.Windows.Forms.GroupBox();
+            this.server_clientlabel = new System.Windows.Forms.Label();
+            this.sendmessagehelp_label = new System.Windows.Forms.Label();
+            this.InfoRSA_label = new System.Windows.Forms.Label();
+            this.InfoVigenere_label = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -93,7 +101,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.logingroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.Instructions_groupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // input_textBox
@@ -170,9 +178,9 @@
             this.groupBox1.Controls.Add(this.portLabel1);
             this.groupBox1.Controls.Add(this.ipLabel1);
             this.groupBox1.ForeColor = System.Drawing.Color.Cyan;
-            this.groupBox1.Location = new System.Drawing.Point(52, 223);
+            this.groupBox1.Location = new System.Drawing.Point(37, 228);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(343, 114);
+            this.groupBox1.Size = new System.Drawing.Size(343, 117);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Me";
@@ -216,9 +224,9 @@
             this.groupBox2.Controls.Add(this.iplabel2);
             this.groupBox2.Controls.Add(this.portlabel2);
             this.groupBox2.ForeColor = System.Drawing.Color.Tomato;
-            this.groupBox2.Location = new System.Drawing.Point(427, 226);
+            this.groupBox2.Location = new System.Drawing.Point(444, 228);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(340, 114);
+            this.groupBox2.Size = new System.Drawing.Size(343, 117);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Friend";
@@ -280,7 +288,7 @@
             // 
             this.buttonConnect.BackColor = System.Drawing.Color.DarkRed;
             this.buttonConnect.ForeColor = System.Drawing.Color.Yellow;
-            this.buttonConnect.Location = new System.Drawing.Point(358, 381);
+            this.buttonConnect.Location = new System.Drawing.Point(356, 384);
             this.buttonConnect.Name = "buttonConnect";
             this.buttonConnect.Size = new System.Drawing.Size(114, 36);
             this.buttonConnect.TabIndex = 17;
@@ -426,23 +434,27 @@
             // 
             this.Create_label.AutoSize = true;
             this.Create_label.ForeColor = System.Drawing.Color.Orchid;
-            this.Create_label.Location = new System.Drawing.Point(261, 186);
+            this.Create_label.Location = new System.Drawing.Point(270, 192);
             this.Create_label.Name = "Create_label";
-            this.Create_label.Size = new System.Drawing.Size(305, 13);
+            this.Create_label.Size = new System.Drawing.Size(295, 13);
             this.Create_label.TabIndex = 24;
-            this.Create_label.Text = "Create Connection  for conersation over the network";
+            this.Create_label.Text = "Create Server-Client or Client to Client Connection ";
             this.Create_label.Click += new System.EventHandler(this.Create_label_Click);
             // 
             // Connect_panel
             // 
             this.Connect_panel.AutoSize = true;
             this.Connect_panel.BackColor = System.Drawing.SystemColors.ControlText;
+            this.Connect_panel.Controls.Add(this.Instructions_groupBox);
+            this.Connect_panel.Controls.Add(this.Logoutbutton1);
+            this.Connect_panel.Controls.Add(this.button3);
+            this.Connect_panel.Controls.Add(this.button2);
+            this.Connect_panel.Controls.Add(this.button1);
             this.Connect_panel.Controls.Add(this.Login_panel);
             this.Connect_panel.Controls.Add(this.Create_label);
             this.Connect_panel.Controls.Add(this.buttonConnect);
             this.Connect_panel.Controls.Add(this.groupBox1);
             this.Connect_panel.Controls.Add(this.groupBox2);
-            this.Connect_panel.Controls.Add(this.pictureBox2);
             this.Connect_panel.ForeColor = System.Drawing.Color.Salmon;
             this.Connect_panel.Location = new System.Drawing.Point(0, -2);
             this.Connect_panel.Name = "Connect_panel";
@@ -462,7 +474,7 @@
             this.Login_panel.Controls.Add(this.pictureBox3);
             this.Login_panel.Controls.Add(this.pictureBox1);
             this.Login_panel.Controls.Add(this.logingroupBox);
-            this.Login_panel.Location = new System.Drawing.Point(0, 0);
+            this.Login_panel.Location = new System.Drawing.Point(6, 471);
             this.Login_panel.Name = "Login_panel";
             this.Login_panel.Size = new System.Drawing.Size(839, 4874);
             this.Login_panel.TabIndex = 25;
@@ -514,6 +526,17 @@
             this.logingroupBox.TabStop = false;
             this.logingroupBox.Text = "Enter password to login into chat-server";
             this.logingroupBox.Enter += new System.EventHandler(this.logingroupBox_Enter);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Plum;
+            this.label1.Location = new System.Drawing.Point(6, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(424, 13);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "(PIN NO should be in Numbers 0 to 9). It should be a 4-Digit PIN Number.";
+            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // buttoncancel
             // 
@@ -679,26 +702,108 @@
             this.Loginbutton.UseVisualStyleBackColor = false;
             this.Loginbutton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // pictureBox2
+            // button1
             // 
-            this.pictureBox2.BackgroundImage = global::Cryptography_Algorithm_Project.Properties.Resources.download1;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox2.Location = new System.Drawing.Point(264, 13);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(345, 156);
-            this.pictureBox2.TabIndex = 26;
-            this.pictureBox2.TabStop = false;
+            this.button1.BackColor = System.Drawing.Color.DarkRed;
+            this.button1.ForeColor = System.Drawing.Color.Yellow;
+            this.button1.Location = new System.Drawing.Point(414, 2662);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(114, 36);
+            this.button1.TabIndex = 27;
+            this.button1.Text = "Connect";
+            this.button1.UseVisualStyleBackColor = false;
             // 
-            // label1
+            // button2
             // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Plum;
-            this.label1.Location = new System.Drawing.Point(6, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(424, 13);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "(PIN NO should be in Numbers 0 to 9). It should be a 4-Digit PIN Number.";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
+            this.button2.BackColor = System.Drawing.Color.DarkRed;
+            this.button2.ForeColor = System.Drawing.Color.Yellow;
+            this.button2.Location = new System.Drawing.Point(422, 2670);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(114, 36);
+            this.button2.TabIndex = 28;
+            this.button2.Text = "Connect";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.DarkRed;
+            this.button3.ForeColor = System.Drawing.Color.Yellow;
+            this.button3.Location = new System.Drawing.Point(430, 2678);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(114, 36);
+            this.button3.TabIndex = 29;
+            this.button3.Text = "Connect";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // Logoutbutton1
+            // 
+            this.Logoutbutton1.BackColor = System.Drawing.Color.DarkKhaki;
+            this.Logoutbutton1.ForeColor = System.Drawing.Color.DarkRed;
+            this.Logoutbutton1.Location = new System.Drawing.Point(498, 384);
+            this.Logoutbutton1.Name = "Logoutbutton1";
+            this.Logoutbutton1.Size = new System.Drawing.Size(99, 36);
+            this.Logoutbutton1.TabIndex = 30;
+            this.Logoutbutton1.Text = "Logout";
+            this.Logoutbutton1.UseVisualStyleBackColor = false;
+            this.Logoutbutton1.Click += new System.EventHandler(this.Logoutbutton1_Click);
+            // 
+            // Instructions_groupBox
+            // 
+            this.Instructions_groupBox.Controls.Add(this.InfoVigenere_label);
+            this.Instructions_groupBox.Controls.Add(this.InfoRSA_label);
+            this.Instructions_groupBox.Controls.Add(this.sendmessagehelp_label);
+            this.Instructions_groupBox.Controls.Add(this.server_clientlabel);
+            this.Instructions_groupBox.ForeColor = System.Drawing.Color.SpringGreen;
+            this.Instructions_groupBox.Location = new System.Drawing.Point(12, 14);
+            this.Instructions_groupBox.Name = "Instructions_groupBox";
+            this.Instructions_groupBox.Size = new System.Drawing.Size(472, 149);
+            this.Instructions_groupBox.TabIndex = 31;
+            this.Instructions_groupBox.TabStop = false;
+            this.Instructions_groupBox.Text = "Help Desk - Read or Listen Instructions if you are using this app first time.";
+            this.Instructions_groupBox.Enter += new System.EventHandler(this.Instructions_groupBox_Enter);
+            // 
+            // server_clientlabel
+            // 
+            this.server_clientlabel.AutoSize = true;
+            this.server_clientlabel.ForeColor = System.Drawing.Color.MediumAquamarine;
+            this.server_clientlabel.Location = new System.Drawing.Point(22, 27);
+            this.server_clientlabel.Name = "server_clientlabel";
+            this.server_clientlabel.Size = new System.Drawing.Size(438, 13);
+            this.server_clientlabel.TabIndex = 0;
+            this.server_clientlabel.Text = "o Help about creating server client connection or client to client connection";
+            this.server_clientlabel.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // sendmessagehelp_label
+            // 
+            this.sendmessagehelp_label.AutoSize = true;
+            this.sendmessagehelp_label.ForeColor = System.Drawing.Color.MediumAquamarine;
+            this.sendmessagehelp_label.Location = new System.Drawing.Point(22, 53);
+            this.sendmessagehelp_label.Name = "sendmessagehelp_label";
+            this.sendmessagehelp_label.Size = new System.Drawing.Size(181, 13);
+            this.sendmessagehelp_label.TabIndex = 1;
+            this.sendmessagehelp_label.Text = "o Help about sending message";
+            this.sendmessagehelp_label.Click += new System.EventHandler(this.sendmessagehelp_label_Click);
+            // 
+            // InfoRSA_label
+            // 
+            this.InfoRSA_label.AutoSize = true;
+            this.InfoRSA_label.ForeColor = System.Drawing.Color.MediumAquamarine;
+            this.InfoRSA_label.Location = new System.Drawing.Point(22, 108);
+            this.InfoRSA_label.Name = "InfoRSA_label";
+            this.InfoRSA_label.Size = new System.Drawing.Size(234, 13);
+            this.InfoRSA_label.TabIndex = 2;
+            this.InfoRSA_label.Text = "o Little Information about RSA Algorithm";
+            // 
+            // InfoVigenere_label
+            // 
+            this.InfoVigenere_label.AutoSize = true;
+            this.InfoVigenere_label.ForeColor = System.Drawing.Color.MediumAquamarine;
+            this.InfoVigenere_label.Location = new System.Drawing.Point(22, 82);
+            this.InfoVigenere_label.Name = "InfoVigenere_label";
+            this.InfoVigenere_label.Size = new System.Drawing.Size(259, 13);
+            this.InfoVigenere_label.TabIndex = 3;
+            this.InfoVigenere_label.Text = "o Little Information about Vigenere Algorithm";
+            this.InfoVigenere_label.Click += new System.EventHandler(this.InfoVigenere_label_Click);
             // 
             // Form1
             // 
@@ -738,7 +843,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.logingroupBox.ResumeLayout(false);
             this.logingroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.Instructions_groupBox.ResumeLayout(false);
+            this.Instructions_groupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -784,7 +890,6 @@
         private System.Windows.Forms.Button Loginbutton;
         private System.Windows.Forms.Panel Connect_panel;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button buttoncancel;
         private System.Windows.Forms.Button buttonfour;
         private System.Windows.Forms.Button buttonthree;
@@ -799,6 +904,15 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button buttonlogout;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button Logoutbutton1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox Instructions_groupBox;
+        private System.Windows.Forms.Label InfoVigenere_label;
+        private System.Windows.Forms.Label InfoRSA_label;
+        private System.Windows.Forms.Label sendmessagehelp_label;
+        private System.Windows.Forms.Label server_clientlabel;
     }
 }
 
